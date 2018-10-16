@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cat">
+
+<head>
+  <title>Tràmit matrícula nous alumnes 16</title>
+  <meta charset="utf-8">
+
+  <!--Font Awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <script src="libreriadmNA.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+ 
+</head>
+
+	
+<!--******************** CANVIS
+1.- Contemplar cas que ja hagin fet matrícula com a alumnes en actiu, no han de tornar a pagar els serveis generals
+2.- 
+3.- 
+4.- 
+5.- 
+ **************************-->
+
+<body>
+	<h1>Matrícula vacants</h1>
+	<h2>Octubre 2018</h2>
+
+	<p>Per saber quins documents heu de presentar per formalitzar la matrícula, emplenau el formulari següent i feis <em>clic</em> al botó calcula.</p>
+
+	<form id="formulari_alumnes">
+
+		<div id="condicio_alumne">
+				<p class="enunciat">Has estat matriculat prèviament com alumne oficial o lliure a qualque Escola Oficial d'Idiomes?<i class='fas fa-info-circle' id="primera_pregunta"></i></p>
+				<input type="radio" name="tipus_alumne" id="antic_alumne" onclick="mostra_pregunta_ja_matriculat(true)"><span style="padding-right:30px;">Sí</span>
+				<input type="radio" name="tipus_alumne" id="nou_alumne" onclick="mostra_pregunta_ja_matriculat(false)">No
+				<br>
+				<br>
+				
+				<div id="ja_matriculat_1819">
+					<p class="enunciat" >Has formalitzat la matrícula per al curs 2018-19 a un altre idioma?</p>
+					<input type='radio' name='ja_matriculat' id='ja_matriculat_si' onclick="mostra_pregunta_antic_alumne(false)"><span style="padding-right:30px;">Sí</span>
+					<input type='radio' name='ja_matriculat' id='ja_matriculat_no' onclick="mostra_pregunta_antic_alumne(true)">No
+					<br><br>
+				</div>
+
+				<div id="antic_alumne_EOIManacor">
+					<p class="enunciat">La teva darrera matrícula va ser a l'EOI Manacor?</p>
+					<input type='radio' name='trasllat' id='trasllat_no'><span style="padding-right:30px;">Sí</span>
+					<input type='radio' name='trasllat' id='trasllat_si'>No
+					<br><br>
+				</div>
+		</div>
+	
+		<div id="majoria_edat">
+			
+				<p class="enunciat">Tens 18 anys o més?</p>
+				<input type='radio' name='edat' id='majoredat_si'><span style="padding-right:30px;">Sí</span>
+				<input type='radio' name='edat' id='majoredat_no'>No
+			<br><br>
+		</div>
+	
+		<div id="pregunta_nombre_idiomes">
+			<p class="enunciat">De quants d'idiomes et matricules? <input id="nombre_idiomes" type="number" name="nidiomes" min="1" max="3" value="1"></p>
+		</div>
+	
+		<div id="comprovacio_exempcio">
+			<span class="enunciat">Especifica la teva situació:</span>
+				<select id="situacio_taxa">
+					<option style="text-align:center">Triau una opció</option>
+					<option value="fng">Som membre de família nombrosa GENERAL</option>
+					<option value="fne">Som membre de família nombrosa ESPECIAL</option>
+					<option value="desoc">Estic en situació de desocupació</option>
+					<option value="disca">Tenc una discapacitat superior a 33%</option>
+					<option value="beca">He sol·licitat o sol·licitaré beca</option>
+					<option value="vter">Som víctima de terrorisme</option>
+					<option value="vgen">Som víctima de violència de gènere</option>
+					<option value="ord">Cap de les anteriors (ordinari)</option>
+				</select>
+		</div>
+		<br>
+	
+		<div>
+			<br>
+			<button type="button" onclick="validar_formulari()">Calcula</button>
+			<span style="padding-right:30px"></span>
+			<button type="reset" onclick="neteja_formulari()">Neteja</button>
+			<br><br>
+		</div>
+
+	</form>
+	
+	<div id="resultat">
+		<div id="recordatori"></div>
+		<div id="resultat_perfil"></div>
+		<div id="resultat_tramits"></div>
+		<div id="resultat_documents"></div>
+		<br><br>
+	<div>
+</body>
+</html>

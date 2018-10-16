@@ -1,0 +1,98 @@
+body{max-width: 700px;
+	margin:auto;
+	font-family: roboto, sans serif;
+}
+
+h1 {font-family: roboto, sans serif;}
+
+table, tr, td, th{border: solid black 1px;
+				border-collapse: collapse;}
+
+td, th {padding: 10px;}
+
+.ttaula {
+	font-weight: bold;
+}
+
+.fa-info-circle{font-size: 30px;
+	color:#ed2828;
+	text-align: center;}
+
+li .fa-info-circle{font-size: 1.2em;}
+
+.fa-info-circle:hover{color:#e86868;}
+
+.enunciat {font-weight: bold;
+	font-family: noto sans, verdana, lato;
+}
+
+.centrat {text-align: center}
+
+#formulari_alumnes{
+	margin-left:5%;
+	margin-right: 5%;
+	background-color: #f2f2f2;
+	padding:20px;
+	border-radius: 10px;
+}
+
+#resultat {margin-top: 50px;}
+
+#recordatori {padding: 5px;margin:auto;}
+
+.fa-exclamation-triangle{font-size: 2.5em;
+	float:left;
+	padding-right: 5px;}
+
+h1 {padding-bottom: 50px;
+}
+
+
+button {padding:10px;
+	background-color: #000000;
+	color:#ffffff;
+	border:none;
+	border-radius: 5px;
+	cursor:pointer;
+	font-weight:bold;}
+
+button:hover{background-color:#777777; }
+
+table a button {
+	background-color: #428bca;
+	border: none; 
+	border-radius: 5px; 
+	padding: 5px 10px; 
+	font-weight: bold;}
+
+table a button:hover {background-color: #86ACCE;cursor: pointer;}
+
+.tramit_tancat:hover{cursor:not-allowed;}
+.tramit_obert:hover{cursor:pointer;}
+
+a button {text-decoration: none; color: white;}
+
+a button:hover {text-decoration: none; color:white}
+
+caption {padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 1.5em;
+	border: 1px solid black;
+	border-bottom: none;
+	background-color: #f7d4aa;}
+
+#primera_pregunta{font-size: inherit;
+color:inherit;
+padding-left: 5px}
+
+#primera_pregunta:hover::after{content:"No estan inclosos els matriculats a That's English o programa EOIES";
+font-weight: normal;
+background: lightblue;
+font-size: 0.8em;
+}
+
+#antic_alumne_EOIManacor{display: none;}
+
+#ja_matriculat_1819{display: none;}
+
+
