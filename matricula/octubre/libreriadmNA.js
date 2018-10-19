@@ -372,17 +372,11 @@ function calcula_taxes(condicio, situacio, nombre_idiomes){
 			numero_pagaments=numero_pagaments+Number(nombre_idiomes);
 
 
-			if (periode==-1){
-				link_taxa_obertura_FNG="#";
-				link_taxa_serveis_generals_FNG="#";
-				link_taxa_matricula_FNG="#";
-				tramit='tramit_tancat';
-				}else{
-					link_taxa_obertura_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146\' target=\'_blank\' ";
-					link_taxa_serveis_generals_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147\' target=\'_blank\' ";
-					link_taxa_matricula_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6145\' target=\'_blank\' ";
-					tramit='tramit_obert';
-				}
+
+			link_taxa_obertura_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146\' target=\'_blank\' ";
+			link_taxa_serveis_generals_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147\' target=\'_blank\' ";
+			link_taxa_matricula_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6145\' target=\'_blank\' ";
+			tramit='tramit_obert';
 				
 
 			doc_obl.afegir_document_rowspan(numero_pagaments,"Taxa obertura d'expedient","Model 046","<a href='"+link_taxa_obertura_FNG+"'rel='noopener'><button class='"+tramit+"'>Pagau (11,83€)</button></a>", "<a href='https://www.eoimanacor.com/pagament-taxes-matricula-presencial/' target='_blank'><i class='fas fa-info-circle'></i></a>");
@@ -405,15 +399,10 @@ function calcula_taxes(condicio, situacio, nombre_idiomes){
 			}
 			numero_pagaments=serveis_generals+Number(nombre_idiomes);
 
-			if (periode==-1){
-				link_taxa_serveis_generals_FNG="#";
-				link_taxa_matricula_FNG="#";
-				tramit='tramit_tancat';
-			}else{
-					link_taxa_serveis_generals_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151\' target=\'_blank\' ";
-					link_taxa_matricula_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150\' target=\'_blank\' ";
-					tramit='tramit_obert';
-			}			
+			
+			link_taxa_serveis_generals_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151\' target=\'_blank\' ";
+			link_taxa_matricula_FNG="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150\' target=\'_blank\' ";
+			tramit='tramit_obert';			
 		
 			if (nombre_idiomes==1){
 				doc_obl.afegir_document_rowspan(numero_pagaments, "Pagament matrícula d'un idioma","Model 046", "<a href='"+link_taxa_matricula_FNG+"'rel='noopener'><button class='"+tramit+"'>Pagau (74,37€)</button></a>", "<a href='https://www.eoimanacor.com/pagament-taxes-matricula-presencial/' target='_blank'><i class='fas fa-info-circle'></i></a>");
@@ -460,17 +449,11 @@ function calcula_taxes(condicio, situacio, nombre_idiomes){
 			numero_pagaments=2;
 			numero_pagaments=numero_pagaments+Number(nombre_idiomes);
 
-			if (periode==-1){
-				link_taxa_obertura_ORD="#";
-				link_taxa_serveis_generals_ORD="#";
-				link_taxa_matricula_ORD="#";
-				tramit='tramit_tancat';
-				}else{
-					link_taxa_obertura_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6143\' target=\'_blank\' ";
-					link_taxa_serveis_generals_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6144\' target=\'_blank\' ";
-					link_taxa_matricula_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6142\' target=\'_blank\' ";
-					tramit='tramit_obert';
-				}
+			link_taxa_obertura_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6143\' target=\'_blank\' ";
+			link_taxa_serveis_generals_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6144\' target=\'_blank\' ";
+			link_taxa_matricula_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6142\' target=\'_blank\' ";
+			tramit='tramit_obert';
+
 
 			/*Obertura d'expedient*/
 			doc_obl.afegir_document_rowspan(numero_pagaments,"Taxa obertura d'expedient", "Model 046", "<a href='"+link_taxa_obertura_ORD+"'rel='noopener'><button class='"+tramit+"'>Pagau (23,66€)</button></a>", "<a href='https://www.eoimanacor.com/pagament-taxes-matricula-presencial/' target='_blank'><i class='fas fa-info-circle'></i></a>");
@@ -497,13 +480,10 @@ function calcula_taxes(condicio, situacio, nombre_idiomes){
 			}
 			numero_pagaments=serveis_generals+Number(nombre_idiomes);
 
-			if (periode==-1){
-				link_taxa_serveis_generals_ORD="#";
-				link_taxa_matricula_ORD="#";
-				}else{
-					link_taxa_serveis_generals_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6149\' target=\'_blank\' ";
-					link_taxa_matricula_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6148\' target=\'_blank\' ";
-				}
+
+			link_taxa_serveis_generals_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6149\' target=\'_blank\' ";
+			link_taxa_matricula_ORD="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6148\' target=\'_blank\' ";
+			tramit='tramit_obert';
 		
 			/*Serveis generals*/
 			
