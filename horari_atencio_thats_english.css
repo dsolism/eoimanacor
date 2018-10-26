@@ -1,0 +1,32 @@
+table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+}
+
+td, th {
+	border: 1px solid black;
+	padding: 10px;
+	width: 15%;
+	text-align: center;
+}
+
+tr {
+	height: 2em;
+}
+
+caption{
+	padding-bottom: 10px;
+	color: #5b74ff;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+.verd{
+	background-color: #c3f9bb;
+}
+
+.vanessa{
+	color: blue;
+	font-weight: bold;
+}
