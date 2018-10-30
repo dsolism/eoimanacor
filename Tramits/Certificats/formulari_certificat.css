@@ -4,11 +4,11 @@ body{
 	font-family: lato;
 }
 
-form{
+.centrat{
 	text-align: center;
 }
 
-input{
+.centrat input{
 	width: 60%;
 	margin-bottom: 30px;
 	height: 20px;
@@ -17,7 +17,7 @@ input{
 	padding: 10px;
 }
 
-textarea{
+.centrat textarea{
 	width: 60%;
 	margin-bottom: 30px;
 	border: 1px solid gray;
@@ -25,7 +25,16 @@ textarea{
 	padding: 10px;
 }
 
+.condicions{
+	font-size: 0.8em;
+}
+
+.condicions input{
+	vertical-align: top;
+}
+
 button{
+	margin-top: 20px;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
@@ -34,5 +43,8 @@ button{
 	color:white;
 }
 
-button:hover{background-color: #719ee8}
+button:hover{
+	background-color: #719ee8;
+	cursor: pointer;
+}
 
