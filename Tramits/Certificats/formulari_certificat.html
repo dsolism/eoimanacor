@@ -7,7 +7,8 @@
 </head>
 <body>
 	<h1>Sol·licitud de certificat acadèmic</h1>
-	<form>
+	<!-- Cream un formulari utilitzant la plataforma formspree.io-->
+	<form action="https://formspree.io/secretariaeoimanacor@gmail.com" method="POST">
 		<!-- Nom i llinatges del sol·licitant-->
 		<div class="centrat">
 			<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom" required>
@@ -23,6 +24,10 @@
 		<!-- Observacions o comentaris que vulgui afegir el sol·licitant -->
 		<div class="centrat">
 			<textarea placeholder="Observacions"></textarea>
+		</div>
+		<!--Cream un input ocult que serà l'assumpte de l'email que rebrem, segons les normes de formspree-->
+		<div>
+			<input type="hidden" name="_subject" value="Sol·licitud de certificat acadèmic">
 		</div>
 		<!-- Casella de comprovació de les condicions de pagament -->
 		<div class="condicions">
