@@ -8,11 +8,30 @@
 <body>
 	<h1>Sol·licitud de certificat acadèmic</h1>
 	<form>
-		<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom"><br>
-		<input type="text" name="DNI_Sollicitant" placeholder="DNI"><br>
-		<input type="email" name="email_Sollicitant" placeholder="E-mail"><br>
-		<textarea placeholder="Observacions"></textarea><br>
-		<button type="submit">Sol·licitar certificat</button>
+		<!-- Nom i llinatges del sol·licitant-->
+		<div class="centrat">
+			<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom" required>
+		</div>
+		<!-- DNI del sol·licitant -->
+		<div class="centrat">
+			<input type="text" name="DNI_Sollicitant" placeholder="DNI / NIE" required>
+		</div>
+		<!-- Email del sol·licitant -->
+		<div class="centrat">
+			<input type="email" name="email_Sollicitant" placeholder="E-mail" required>
+		</div>
+		<!-- Observacions o comentaris que vulgui afegir el sol·licitant -->
+		<div class="centrat">
+			<textarea placeholder="Observacions"></textarea>
+		</div>
+		<!-- Casella de comprovació de les condicions de pagament -->
+		<div class="condicions">
+			<input type="checkbox" name="condicions" required>He llegit la informació referent al <a href="#">pagament de les taxes</a> i quan passi a recollir el certificat aportaré el justificant corresponent.
+		</div>
+		<!-- Botó de sol·licitud -->
+		<div class="centrat">
+			<button type="submit">Sol·licitau certificat</button>
+		</div>
 	</form>
 
 
