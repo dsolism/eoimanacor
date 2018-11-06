@@ -7,38 +7,84 @@
 </head>
 <body>
 	<h1>Sol·licitud de certificat acadèmic</h1>
-	<!-- Cream un formulari utilitzant la plataforma formspree.io-->
-	<form action="https://formspree.io/secretariaeoimanacor@gmail.com" method="POST">
-		<!-- Nom i llinatges del sol·licitant-->
-		<div class="centrat">
-			<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom" required>
-		</div>
-		<!-- DNI del sol·licitant -->
-		<div class="centrat">
-			<input type="text" name="DNI_Sollicitant" placeholder="DNI / NIE" required>
-		</div>
-		<!-- Email del sol·licitant -->
-		<div class="centrat">
-			<input type="email" name="email_Sollicitant" placeholder="E-mail" required>
-		</div>
-		<!-- Observacions o comentaris que vulgui afegir el sol·licitant -->
-		<div class="centrat">
-			<textarea placeholder="Observacions"></textarea>
-		</div>
-		<!--Cream un input ocult que serà l'assumpte de l'email que rebrem, segons les normes de formspree-->
-		<div>
-			<input type="hidden" name="_subject" value="Sol·licitud de certificat acadèmic">
-		</div>
-		<!-- Casella de comprovació de les condicions de pagament -->
-		<div class="condicions">
-			<input type="checkbox" name="condicions" required>He llegit la informació referent al <a href="#">pagament de les taxes</a> i quan passi a recollir el certificat aportaré el justificant corresponent.
-		</div>
-		<!-- Botó de sol·licitud -->
-		<div class="centrat">
-			<button type="submit">Sol·licitau certificat</button>
-		</div>
-	</form>
+	<div id="passa1">
+		<h2>1. Sol·licitud on-line</h2>
+		<!-- Cream un formulari utilitzant la plataforma formspree.io-->
+		<form action="https://formspree.io/secretariaeoimanacor@gmail.com" method="POST">
+			<!-- Nom i llinatges del sol·licitant-->
+			<div class="centrat">
+				<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom" required>
+			</div>
+			<!-- DNI del sol·licitant -->
+			<div class="centrat">
+				<input type="text" name="DNI_Sollicitant" placeholder="DNI / NIE" required>
+			</div>
+			<!-- Email del sol·licitant -->
+			<div class="centrat">
+				<input type="email" name="email_Sollicitant" placeholder="E-mail" required>
+			</div>
+			<!-- Observacions o comentaris que vulgui afegir el sol·licitant -->
+			<div class="centrat">
+				<textarea placeholder="Observacions"></textarea>
+			</div>
+			<!--Cream un input ocult que serà l'assumpte de l'email que rebrem, segons les normes de formspree-->
+			<div>
+				<input type="hidden" name="_subject" value="Sol·licitud de certificat acadèmic">
+			</div>
+			<!-- Casella de comprovació de les condicions de pagament -->
+			<div class="condicions">
+				<input type="checkbox" name="condicions" required>He llegit la informació referent al <a href="#">pagament de les taxes</a> i quan passi a recollir el certificat aportaré el justificant corresponent.
+			</div>
+			<!-- Botó de sol·licitud -->
+			<div class="centrat">
+				<button type="submit">Sol·licitau certificat</button>
+			</div>
+		</form>		
+	</div>
+	<div id="passa2">
+	<h2>2. Pagament de la taxa</h2>
+	<p>El pagament de la taxa per a l'expedició del certificat acadèmic és <strong>obligatori</strong>, excepte si és compleix una de les situacions d'exempció següents:</p>
+		<ul>
+		 	<li>membres de <strong>família nombrosa especial</strong> (presentar original i fotocòpia del títol)</li>
+		 	<li>persones en situació de <strong>desocupació</strong> (presentar informe de període ininterromput)</li>
+		 	<li>persones víctimes d’actes terroristes, incluïts cònjuge i fills (acreditar documentalment; en el cas del cònjuge i els fills, també s’ha de presentar el llibre de família)</li>
+		 	<li>víctimes de <strong>violència de gènere</strong>, o els fills que en depenen (acreditar documentalment; en el cas dels fills dependents, també s’ha de presentar el llibre de família)</li>
+		 	<li>persones amb una <strong>discapacitat</strong> igual o superior al 33% (presentar original i fotocòpia del certificat de discapacitat)</li>
+		</ul>
+		<p>Si no es compleix cap d'aquestes situacions s'ha de pagar la taxa ordinària o la de família nombrosa general (haurà de presentar original i fotocòpia del títol de família nombrosa).</p>
 
+		<p>El pagament es pot gestionar des de la web de l'Agència Tributària, mitjançant el model 046. Una vegada emplenat l'imprès, teniu dues opcions:</p>
 
+		<ol>
+			<li>Fer efectiu el pagament on-line i a continuació imprimir el model 046 on consti el justificant de pagament.</li>
+			<li>Imprimir el model 046 i anar a una entitat bancària a fer efectiu el pagament, on us segelleran l'imprès com a justificant.</li>
+		</ol>
+
+		<p><strong>Només s'acceptarà el model 046</strong> amb el corresponent justificant de pagament, en cap cas s'admetrà un document emès pel banc.</p>
+
+		<p>Podeu gestionar el pagament als enllaços següents:</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="text-align: right; padding-right: 20px; width: 50%;border:none;">Taxa ordinària</td>
+					<td style="border:none;"><a style="text-decoration: none; color: white;" href="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&amp;idConcepto=5692" target="_blank" rel="noopener"><button style="border: none; border-radius: 5px; padding: 5px 10px; font-weight: bold;">Pagar (9,01€)</button></a></td>
+				</tr>
+				<tr>
+					<td style="text-align: right; padding-right: 20px; width: 50%;border:none;border-bottom:white;">Taxa família nombrosa general</td>
+					<td style="border:none;"><a style="text-decoration: none; color: white;" href="https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&amp;idConcepto=6596" target="_blank" rel="noopener"><button style="border: none; border-radius: 5px; padding: 5px 10px; font-weight: bold;">Pagar (4,51€)</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="passa3">
+		<h2>3. Recollir el certificat presencialment</h2>
+	</div>
 </body>
 </html>
