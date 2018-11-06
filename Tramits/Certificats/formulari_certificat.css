@@ -47,4 +47,8 @@ button:hover{
 	background-color: #719ee8;
 	cursor: pointer;
 }
+ol{
+	list-style-type: lower-alpha;
+}
+
 
