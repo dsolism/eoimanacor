@@ -4,13 +4,12 @@ if(!isset($_POST['submit']))
 	//This page should not be accessed directly. Need to submit the form.
 	echo "error; you need to submit the form!";
 }
-$Nom_Sollicitant = $_POST['Nom_Sollicitant'];
-$email_Sollicitant = $_POST['email_Sollicitant'];
-$DNI_Sollicitant = $_POST['DNI_Sollicitant'];
-$Obervacions_Sollicitant = $_POST['Obervacions_Sollicitant'];
+$name = $_POST['name'];
+$visitor_email = $_POST['email'];
+$message = $_POST['message'];
 
 //Validate first
-/*if(empty($name)||empty($visitor_email)) 
+if(empty($name)||empty($visitor_email)) 
 {
     echo "Name and email are mandatory!";
     exit;
