@@ -4,13 +4,14 @@
 	<title>EOI Manacor - Formulari certificat</title>
 	<link rel="stylesheet" type="text/css" href="formulari_certificat.css">
 	<meta charset="utf-8">
+	<script type="text/javascript" src="formulari_certificat.js"></script>
 </head>
 <body>
 	<h1>Sol·licitud de certificat acadèmic</h1>
 	<div id="passa1">
 		<h2>1. Sol·licitud on-line</h2>
 		<!-- Cream un formulari utilitzant la plataforma formspree.io-->
-		<form action="https://formspree.io/secretariaeoimanacor@gmail.com" method="POST">
+		<form action="form-to-email.php" name="formulari_certificat" method="POST">
 			<!-- Nom i llinatges del sol·licitant-->
 			<div class="centrat">
 				<input type="text" name="Nom_Sollicitant" placeholder="Llinatges, nom" required>
@@ -25,7 +26,7 @@
 			</div>
 			<!-- Observacions o comentaris que vulgui afegir el sol·licitant -->
 			<div class="centrat">
-				<textarea placeholder="Observacions"></textarea>
+				<textarea name="Obervacions_Sollicitant" placeholder="Observacions"></textarea>
 			</div>
 			<!--Cream un input ocult que serà l'assumpte de l'email que rebrem, segons les normes de formspree-->
 			<div>
