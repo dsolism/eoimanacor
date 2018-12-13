@@ -1,0 +1,87 @@
+body{
+	max-width: 800px;
+	margin: auto;
+	font-family: lato;
+}
+
+.centrat{
+	text-align: center;
+}
+
+.lletra_gran{
+	font-size: 1.3em;
+}
+
+.targeta{
+	border: 1px solid gray;
+	border-radius: 5px;
+	float: left;
+	overflow: auto;
+	padding: 10px;
+	width: 20%;
+	margin:5px;
+	min-height: 2.5em;
+}
+
+.seccio{
+	overflow:auto;
+	clear: both;
+}
+
+#menu ul {
+	position: absolute;
+}
+
+li{
+	float: left;
+	list-style-type: none;
+	padding: 10px;
+	font-size: 1.1em;
+	color: white;
+	background-color: black;
+}
+
+.centrat input{
+	width: 60%;
+	margin-bottom: 30px;
+	height: 20px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.centrat textarea{
+	width: 60%;
+	margin-bottom: 30px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.condicions{
+	font-size: 0.8em;
+}
+
+.condicions input{
+	vertical-align: top;
+}
+
+button{
+	margin-top: 20px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #4286f4;
+	font-weight: bold;
+	color:white;
+}
+
+button:hover{
+	background-color: #719ee8;
+	cursor: pointer;
+}
+ol{
+	list-style-type: lower-alpha;
+}
+
+
