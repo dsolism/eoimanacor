@@ -23,22 +23,53 @@ body{
 	min-height: 2.5em;
 }
 
+.targeta:hover{
+	background-color: #ededed;
+	cursor: pointer;
+}
+
 .seccio{
 	overflow:auto;
 	clear: both;
 }
 
-#menu ul {
-	position: absolute;
+#menu{
+	position: sticky;
+	top: 0;
 }
 
-li{
+#menu > ul{
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+	overflow: auto;
+	background-color: #ffffff;
+}
+
+#menu > ul > li{
 	float: left;
-	list-style-type: none;
-	padding: 10px;
+	margin-right: 1px;
 	font-size: 1.1em;
+	padding: 10px;
 	color: white;
+	overflow: auto;
+}
+
+#menu ul li{
+	list-style-type: none;
 	background-color: black;
+}
+
+#menu_tramits{
+	display: none;
+	padding: 0;
+}
+
+#menu_tramits > li {
+	margin-top: 1px;
+	padding: 10px 0px 5px 0px;
 }
 
 .centrat input{

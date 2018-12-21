@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="eoimanacor_home.css">
+	<script src="eoimanacor_home.js"></script>
 	<meta charset="utf-8">
 	<title>EOI Manacor - Pàgina d'inici</title>
 </head>
@@ -14,14 +15,22 @@
 	<div id="menu">
 		<ul>
 			<li>Inici</li>
-			<li>Tràmits</li>
+			<li onmouseover="mostra_submenu()" onmouseout="amaga_submenu()">Tràmits
+				<ul id="menu_tramits">
+					<li>Certificat acadèmic</li>
+					<li>Renúncia</li>
+				</ul>
+			</li>
 			<li>Personal</li>
+			<li>Oferta educativa</li>
+			<li>Instal·lacions</li>
+			<li>Contacte</li>
 		</ul>
 	</div>
 	<div id="processos" class="seccio">
 		<h2>Procediments oberts</h2>
 		<div class="targeta">
-			EOIES Institutus
+			EOIES Instituts
 		</div>
 	</div>
 	<div id="tramits" class="seccio">
@@ -36,7 +45,7 @@
 			Renúncia de matrícula
 		</div>		
 		<div class="targeta">
-			Renúncia de matrícula
+			Trasllat d'expedient
 		</div>
 	</div>
 	<div id="noticies" class="seccio">
