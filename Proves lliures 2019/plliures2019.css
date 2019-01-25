@@ -1,0 +1,177 @@
+body{
+	max-width: 800px;
+	margin: auto;
+	font-family: lato;
+	text-align: justify;
+}
+
+p{text-align: justify;}
+p+p{text-indent: 3em;}
+
+input{
+	margin-bottom: 1em;
+	border-radius: 5px;
+	font-size: 1em;
+	padding: 10px;
+}
+
+select{
+	font-size: 1em;
+	padding: 2px;
+}
+
+.email{
+	width: 50%;
+	border: solid 1px gray;
+}
+
+.email:focus{
+	border-color: blue;
+	border-radius: 5px;
+}
+.centrat{
+	text-align: center;
+}
+
+
+.targeta{
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 15px;
+	margin:1em 0;
+}
+
+.targeta2{
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	padding: 15px;
+	margin:1em 0;
+}
+
+input.button{
+	border:none;
+	background-color: #428aff;
+	color: white;
+	font-weight: bold;
+}
+
+.button:hover{
+	background-color: #72a8ff;
+	cursor: pointer;
+}
+
+.faq ol > li {
+	font-weight: bold;
+}
+
+#nombreMatricules{
+	padding: 5px;
+}
+
+button{
+	border:none;
+	background-color: #00c18e;
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: 5px;
+	margin-right: 1.5em;
+	font-size: 1em;
+}
+
+button:hover{
+	background-color: #008c67;
+	cursor: pointer;
+}
+
+#preguntesAnticAlumne{
+	margin-left:3em;
+	display: none;
+}
+
+input[type="checkbox"]{
+	transform: scale(1.2);
+}
+
+fieldset{
+	margin-top: 2em;
+	padding-top: 1em;
+	width: 50%;
+	border-radius: 5px;
+}
+
+#tramits, #docAddicionals{
+	display:none;
+}
+
+.contenidor1{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.contenidor2{
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+.quadrant{
+	margin: auto;
+}
+
+.far, .fas{
+	margin-right: 0.8em;
+}
+
+
+
+/*label{
+	display: block;
+	padding-bottom: 0.8em;
+}*/
+
+/*Codi que no es fa servir*/
+
+/*table{
+	border-collapse: collapse;	
+}
+
+td{
+	border: 1px solid black;
+	padding: 5px;
+}
+
+th{
+	padding: 5px;
+}
+
+dt{
+	color:blue;
+	font-weight: 600;
+}
+
+h2{
+	margin-top: 2em;
+}
+
+h3{
+	margin-left: 1em;
+}
+
+ol li{
+	margin-bottom: 1em;
+}
+
+.avis_exempcions{
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.avis_exempcions a{
+	color: #ff7070;
+}
+
+.avis_exempcions a:hover{
+	color: #ff1616;
+}
+
+*/

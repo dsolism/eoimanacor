@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tràmit matícula</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="plliures2019.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<script src="plliures2019.js"></script>
+</head>
+<body>
+	<h1>Tràmit matrícula</h1>
+	<div>
+		<!-- Formulari per determinar documents de matrícula -->
+		<form method="POST" action="javascript:Calcula()">
+
+			<!-- Pregunta sobre antiguitat -->
+			<div>
+				<p>Has estat prèviament matriculat/ada a qualque escola oficial d'idiomes com alumne oficial o lliure?</p>
+				<div>
+					<input type="radio" id="anticAlumne" name="antiguitat" value="si" onclick="mostraAnticAlumne(true)" required>
+					<label for="anticAlumne">Sí</label>
+
+					<input type="radio" id="nouAlumne" name="antiguitat" value="no" onclick="mostraAnticAlumne(false)">
+					<label for="nouAlumne">No</label>
+				</div>
+			</div>
+
+			<!-- Aquesta preguntes només es mostrarà si l'usuari declara ser antic alumne -->
+			<div id="preguntesAnticAlumne">
+
+				<!-- Alumne oficial curs actual. Aquesta informació ens servirà per saber si ha de pagar serveis generals i presentar justificant zona influència -->
+				<p>Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?</p>
+				<div>
+					<input type="radio" id="alumnePresencialSi" name="alumnePresencial" value="si">
+					<label for="alumnePresencialSi">Sí</label>					
+					<input type="radio" id="alumnePresencialNo" name="alumnePresencial" value="no">
+					<label for="alumnePresencialNo">No</label>
+				</div>		
+			</div>
+
+
+			<!-- Número de matrícules -->
+			<div>
+				<label for="nombreMatricules">A quants nivells t'inscrius?</label>
+				<input type="number" name="nombreMatricules" id="nombreMatricules" min="1" max="6" value="1">
+			</div>
+
+
+			<!-- Situació a efectes de pagament de taxes -->
+			<div>
+				<!-- En posar el desplegable com a 'required', el formulari validarà que l'usuari ha triat un valor diferent de blanc (value) -->
+				<select id="situacio" name="situacio" required>
+					<option value="">— Especificau una situació —</option>
+					<option value="fng">Som membre de família nombrosa o monoparental GENERAL</option>
+					<option value="fne">Som membre de família nombrosa o monoparental ESPECIAL</option>
+					<option value="atur">Estic en situació d'atur</option>
+					<option value="terr">Som víctima d'actes terroristes</option>
+					<option value="disc">Tenc una discapacitat igual al 33 % o superior</option>
+					<option value="gen">Som víctima violència de gènere</option>
+					<option value="vulec">Estic en situació de vulnerabilitat econòmica especial</option>
+					<option value="tute">Som un jove tutelat o en acolliment familiar</option>
+					<option value="llib">Estic subjecte a mesures privatives de llibertat</option>
+					<option value="ord">Cap de les anteriors (Ordinari)</option>
+				</select>
+			</div>
+
+			<!-- Altres consideracions -->
+			<div>
+				<fieldset>
+					<legend>Altres consiceracions</legend>
+					<div>
+						<input type="checkbox" name="adaptacio" id="adaptacio">
+						<label for="adaptacio">Deman adaptació d'examen</label>
+					</div>
+					<div>
+						<input type="checkbox" name="trasllat" id="trasllat">
+						<label for="trasllat">Deman trasllat d'expedient</label>
+					</div>
+				</fieldset>
+			</div>
+
+			<!-- Botons -->
+			<div>
+				<br>
+				<button type="submit">Calcula</button>
+				<button type="reset">Neteja</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- Resultats formulari -->
+
+	<!-- Tràmits -->
+	<div id="tramits">
+		<h2>Tràmits</h2>
+		<table id="taulaDocuments">
+			<thead>
+				<tr>
+					<th>Tràmit</th>
+					<th>Document a presentar</th>
+					<th>Realitzau el tràmit</th>
+					<th>Més informació</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+
+	<!-- Documents addicionals -->
+	<div id="docAddicionals">
+		<h2>Documents addicionals</h2>
+	</div>
+</body>
+</html>
