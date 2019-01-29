@@ -22,51 +22,48 @@ function mostraAnticAlumne(mostrarPreguntes){
 
 const taxes = {
 	"oberturaExpedient":{
-		"tramit":"Obertura d'expedient",
+		"tramit":"Pagament obertura d'expedient",
 		"document": "Model 046",
-		"quota":[
-		]
 		"ord":{
 			"textBoto": "Pagau (23,92 €)",
-			"nouAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6143",
-				"urlInfo":""
-			}
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6143"
 		},
 		"fng":{
 			"textBoto": "Pagau (11,96 €)",
-			"nouAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146",
-				"urlInfo":""
-			}
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146"
+			
 		}
 	},
 	"serveisGenerals":{
-		"tramit":"Serveis generals",
+		"tramit":"Pagament serveis generals",
 		"document": "Model 046",
+
 		"ord":{
 			"textBoto": "Pagau (11,39 €)",
-			"nouAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6144",
-				"urlInfo":""
-			},
-			"anticAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6149",
-				"urlInfo":""
-			}
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6144",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6149"
 		},
 		"fng":{
 			"textBoto": "Pagau (5,70 €)",
-			"nouAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
-				"urlInfo":""
-			},
-			"anticAlumne":{
-				"urlTramit":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151",
-				"urlInfo":""
-			}
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151"
 		}
-	}
+	},
+	"dretsExamen":{
+		"tramit": "Pagament drets examen",
+		"document": "Model 046",
+		"ord":{
+			"textBoto":"Pagau (45,57)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6078",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6084"
+		},
+		"fng":{
+			"textBoto":"Pagau (22,79)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6081",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
+		}
+	},
+	"urlInfo":""
 }
 
 const tramits = {
@@ -82,7 +79,7 @@ const tramits = {
 		"tramit":"Adaptació d'examen",
 		"document":"Sol·licitud d'adaptació",
 		"textBoto":"Imprimiu",
-		"urlTramit":"hhttps://www.eoimanacor.com/adaptacions-proves-de-certificacio/",
+		"urlTramit":"https://www.eoimanacor.com/adaptacions-proves-de-certificacio/",
 		"urlInfo":"https://www.eoimanacor.com/adaptacions-proves-de-certificacio/"
 	},
 
@@ -92,19 +89,32 @@ const tramits = {
 		"textBoto":"Imprimiu",
 		"urlTramit":"https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2018/06/28082538/AUTORITZACIO-US-DADES-PERSONALS.pdf",
 		"urlInfo":"https://www.eoimanacor.com/us-de-dades-personals/"
-	}
+	},
 	"zonaInfluencia":{
 		"tramit":"Zona d'influència",
 		"document":"Justificant adscripció a la zona d'influència",
 		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/"
+	},
+	"trasllatExpedient":{
+		"tramit":"Trasllat d'expedient",
+		"document":"Sol·licitud de trasllat",
+		"textBoto":"Imprimiu",
+		"urlTramit":"http://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2018/03/20160359/Sol%C2%B7licitud-trasllat-expedient.pdf",
+		"urlInfo":"https://www.eoimanacor.com/trasllat-de-matricula/"
 	}
 }
 
 // Creació plantilla objecte alumne
 class alumneSchema{
 	
-	constructor(anticAlumne, matriculat1819, nombreMatricules, situacioTaxes, adaptacio, trasllat){
-		this.anticAlumne=anticAlumne;
+	constructor(condicioAlumne, matriculat1819, nombreMatricules, situacioTaxes, adaptacio, trasllat){
+		
+		if (condicioAlumne){
+			this.condicioAlumne='anticAlumne';
+		}else{
+			this.condicioAlumne='nouAlumne';
+		}
+		
 		this.matriculat1819=matriculat1819;
 		this.nombreMatricules=nombreMatricules;
 		this.situacioTaxes=situacioTaxes;
@@ -121,25 +131,35 @@ class alumneSchema{
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 	}
 
-	afegeixPagament(taxa, situacio){
-		console.log(taxa[situacio].urlTramit)
+	afegeixPagament(taxa, situacio, condicio){
+
+		var boto = '<a href="'+taxa[situacio][condicio]+'" target="_blank"><button>'+taxa[situacio].textBoto+'</button></a>';
+		var info = '<a href="'+taxes.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
+		var linia ='<tr><td>'+taxa.tramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
+
 	}
 }
 
 function Calcula(){
 
-	var anticAlumne=document.getElementById('anticAlumne').checked,
+	// Llevam els possibles resultats del formulari, per si l'han fet servir més d'una vegada
+	Neteja();
+
+	// Recollim els valors del formulari
+	var condicioAlumne=document.getElementById('anticAlumne').checked,
 		matriculat1819=document.getElementById('alumnePresencialSi').checked,
 		nombreMatricules=document.getElementById('nombreMatricules').value,
 		situacioTaxes=document.getElementById('situacio').value,
 		adaptacio=document.getElementById('adaptacio').checked,
 		trasllat=document.getElementById('trasllat').checked;
 
-	Alumne = new alumneSchema(anticAlumne, matriculat1819, nombreMatricules, situacioTaxes, adaptacio, trasllat);
+	// Cream l'objecte alumne
+	Alumne = new alumneSchema(condicioAlumne, matriculat1819, nombreMatricules, situacioTaxes, adaptacio, trasllat);
 
 	Alumne.afegeixTramit(tramits.matrTelematica);
 
-	if (Alumne.matriculat1819){
+	if (!Alumne.matriculat1819){
 		Alumne.afegeixTramit(tramits.proteccioDades);
 	}
 
@@ -147,12 +167,45 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.adaptacioExamen);
 	}
 
-	if (!Alumne.anticAlumne){
-		Alumne.afegeixPagament(taxes.oberturaExpedient, Alumne.situacioTaxes);
+	if (Alumne.trasllat){
+		Alumne.afegeixTramit(tramits.trasllatExpedient);
+	}
+
+	// Taxes (només si és ordinari o família nombrosa general)
+	if ((Alumne.situacioTaxes=='ord')||(Alumne.situacioTaxes=='fng')){
+
+		// Obertura d'expedient
+		if (Alumne.condicioAlumne=='nouAlumne'){
+			Alumne.afegeixPagament(taxes.oberturaExpedient, Alumne.situacioTaxes, Alumne.condicioAlumne);
+		}
+
+		// Serveis generals: només si no està matriculat com alumne presencial al curs actual
+		if (!Alumne.matriculat1819){
+			Alumne.afegeixPagament(taxes.serveisGenerals, Alumne.situacioTaxes, Alumne.condicioAlumne);
+		}
+
+		// Drets d'examen: un pagament per cada idioma i nivell
+		for(i=0;i<Alumne.nombreMatricules;i++){
+			Alumne.afegeixPagament(taxes.dretsExamen, Alumne.situacioTaxes, Alumne.condicioAlumne);
+		}
+	}else{
+
 	}
 
 	document.getElementById('tramits').style.display='block';
+}
 
+function Neteja(){
 
+	// Buidam els resultats i els amagam
+	var taulaDocuments=document.getElementById('taulaDocuments'),
+		docAddicionals=document.getElementById('docAddicionals');
+		tramitsDiv=document.getElementById('tramits');
+	
+	taulaDocuments.lastElementChild.innerHTML='';
+	docAddicionals.innerHTML='';
+
+	tramitsDiv.style.display='none';
+	docAddicionals.style.display='none';
 }
 

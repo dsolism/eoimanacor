@@ -17,10 +17,10 @@
 			<div>
 				<p>Has estat prèviament matriculat/ada a qualque escola oficial d'idiomes com alumne oficial o lliure?</p>
 				<div>
-					<input type="radio" id="anticAlumne" name="antiguitat" value="si" onclick="mostraAnticAlumne(true)" required>
+					<input type="radio" id="anticAlumne" name="antiguitat" value="si" onclick="mostraAnticAlumne(true)" autocomplete="off" required>
 					<label for="anticAlumne">Sí</label>
 
-					<input type="radio" id="nouAlumne" name="antiguitat" value="no" onclick="mostraAnticAlumne(false)">
+					<input type="radio" id="nouAlumne" name="antiguitat" value="no" onclick="mostraAnticAlumne(false)" autocomplete="off">
 					<label for="nouAlumne">No</label>
 				</div>
 			</div>
@@ -31,9 +31,9 @@
 				<!-- Alumne oficial curs actual. Aquesta informació ens servirà per saber si ha de pagar serveis generals i presentar justificant zona influència -->
 				<p>Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?</p>
 				<div>
-					<input type="radio" id="alumnePresencialSi" name="alumnePresencial" value="si">
+					<input type="radio" id="alumnePresencialSi" name="alumnePresencial" value="si" autocomplete="off">
 					<label for="alumnePresencialSi">Sí</label>					
-					<input type="radio" id="alumnePresencialNo" name="alumnePresencial" value="no">
+					<input type="radio" id="alumnePresencialNo" name="alumnePresencial" value="no" autocomplete="off">
 					<label for="alumnePresencialNo">No</label>
 				</div>		
 			</div>
@@ -49,7 +49,7 @@
 			<!-- Situació a efectes de pagament de taxes -->
 			<div>
 				<!-- En posar el desplegable com a 'required', el formulari validarà que l'usuari ha triat un valor diferent de blanc (value) -->
-				<select id="situacio" name="situacio" required>
+				<select id="situacio" name="situacio" required autocomplete="off">
 					<option value="">— Especificau una situació —</option>
 					<option value="fng">Som membre de família nombrosa o monoparental GENERAL</option>
 					<option value="fne">Som membre de família nombrosa o monoparental ESPECIAL</option>
@@ -69,11 +69,11 @@
 				<fieldset>
 					<legend>Altres consiceracions</legend>
 					<div>
-						<input type="checkbox" name="adaptacio" id="adaptacio">
+						<input type="checkbox" name="adaptacio" id="adaptacio" autocomplete="off">
 						<label for="adaptacio">Deman adaptació d'examen</label>
 					</div>
 					<div>
-						<input type="checkbox" name="trasllat" id="trasllat">
+						<input type="checkbox" name="trasllat" id="trasllat" autocomplete="off">
 						<label for="trasllat">Deman trasllat d'expedient</label>
 					</div>
 				</fieldset>
@@ -83,7 +83,7 @@
 			<div>
 				<br>
 				<button type="submit">Calcula</button>
-				<button type="reset">Neteja</button>
+				<button type="reset" onclick="Neteja()">Neteja</button>
 			</div>
 		</form>
 	</div>
