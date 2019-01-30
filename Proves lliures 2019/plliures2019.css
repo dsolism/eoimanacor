@@ -124,7 +124,7 @@ fieldset{
 }
 
 table{
-	border-collapse: collapse;	
+	border-collapse: collapse;
 }
 
 thead{
@@ -138,6 +138,29 @@ td, th{
 
 .fa-info-circle{
 	color: #0000EE;
+}
+
+ .fa-question-circle{
+	margin-left: 0.7em;
+	font-size: 1.2em;
+	color: #999999;
+}
+
+.avis{
+	font-size: 0.8em;
+	padding: 2px;
+	background-color: #c6c6c6;
+	border: 1px solid black;
+	z-index: 1;
+	position: fixed;
+}
+
+#avisTrasllatExpedient, #avisAdaptacio{
+	display: none;
+}
+
+li .fa-info-circle {
+	margin-left: 0.7em;
 }
 
 /*label{

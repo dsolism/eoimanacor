@@ -104,6 +104,17 @@ const tramits = {
 	}
 }
 
+const altresDocuments = {
+
+	"fotocopiaDNI":{
+		"document":"Fotocòpia DNI/NIE"
+	},
+	"justZonaInfluencia":{
+		"document":"Justificant zona d'influència",
+		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/"
+	}
+}
+
 // Creació plantilla objecte alumne
 class alumneSchema{
 	
@@ -139,12 +150,22 @@ class alumneSchema{
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 
 	}
+
+	afegeixDocument(paramDoc){
+
+		var linia='<li>'+paramDoc['document'];
+		if (paramDoc['urlInfo']!=undefined){
+			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"><i class="fas fa-info-circle"></i></a>'
+		}
+		linia+='</li>'
+		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia)
+	}
 }
 
 function Calcula(){
 
 	// Llevam els possibles resultats del formulari, per si l'han fet servir més d'una vegada
-	Neteja();
+	Neteja(false);
 
 	// Recollim els valors del formulari
 	var condicioAlumne=document.getElementById('anticAlumne').checked,
@@ -161,6 +182,11 @@ function Calcula(){
 
 	if (!Alumne.matriculat1819){
 		Alumne.afegeixTramit(tramits.proteccioDades);
+		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
+		Alumne.afegeixDocument(altresDocuments.justZonaInfluencia);
+
+		document.getElementById('docAddicionals').style.display='initial';
+
 	}
 
 	if (Alumne.adaptacio){
@@ -188,24 +214,47 @@ function Calcula(){
 		for(i=0;i<Alumne.nombreMatricules;i++){
 			Alumne.afegeixPagament(taxes.dretsExamen, Alumne.situacioTaxes, Alumne.condicioAlumne);
 		}
-	}else{
+	}else{ // L'alumne té exempció o bonificació
+
+		switch (Alumne.situacioTaxes){
+			case "atur":
+				alert('Aturat');
+				break;
+		}
+
+		// Famílina nombrosa
 
 	}
 
-	document.getElementById('tramits').style.display='block';
+	document.getElementById('tramits').style.display='initial';
 }
 
-function Neteja(){
+function Neteja(netejaFormulari=true){
 
 	// Buidam els resultats i els amagam
 	var taulaDocuments=document.getElementById('taulaDocuments'),
-		docAddicionals=document.getElementById('docAddicionals');
+		docAddicionals=document.getElementById('docAddicionals')
 		tramitsDiv=document.getElementById('tramits');
 	
 	taulaDocuments.lastElementChild.innerHTML='';
-	docAddicionals.innerHTML='';
+	docAddicionals.lastElementChild.innerHTML='';
 
 	tramitsDiv.style.display='none';
 	docAddicionals.style.display='none';
+
+	// Esborram la pregunta 'Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?'
+	// si així ho rembem per paràmetre
+	if (netejaFormulari){
+		document.getElementById('preguntesAnticAlumne').style.display='none';
+	}
 }
 
+// Mostra una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
+function mostraAvis(paramId){
+	document.getElementById(paramId).style.display='initial';
+}
+
+// Amaga una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
+function amagaAvis(paramId){
+	document.getElementById(paramId).style.display='none';
+}
