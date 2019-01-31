@@ -9,12 +9,10 @@ function mostraAnticAlumne(mostrarPreguntes){
 		/*Feim que les dues preguntes siguin visibles i de resposta obligatòria*/
 		apartat.style.display='block';
 		document.getElementsByName('alumnePresencial')[0].required=true;
-		// document.getElementsByName('trasllat')[0].required=true;
 	} else{
 		/*Amagam les dues preguntes i les posam com a no obligatòries*/
 		apartat.style.display='none';
 		document.getElementsByName('alumnePresencial')[0].required=false;
-		// document.getElementsByName('trasllat')[0].required=false;
 	}
 
 }
@@ -112,6 +110,30 @@ const altresDocuments = {
 	"justZonaInfluencia":{
 		"document":"Justificant zona d'influència",
 		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/"
+	},
+	"infPeriodeInin":{
+		"document":"Informe de periode ininterromput inscrit en situació de desocupació"
+	},
+	"familiaNombrosa":{
+		"document":"Títol família nombrosa"
+	},
+	"cercDiscapacitat":{
+		"document":"Certificació de discapacitat"
+	},
+	"vicTerrorisme":{
+		"document":"Certificat de víctima de terrorisme"
+	},
+	"vicGenere":{
+		"document":"Ordre allunyament en vigor"
+	},
+	"joveTutelat":{
+		"document":"Document de tutela"
+	},
+	"privLlibertat":{
+		"document":"Document acreditatiu de la privació de llibertat"
+	},
+	"vulnerabilitatEconomica":{
+		"document":"Informe emès pels serveis socials"
 	}
 }
 
@@ -155,7 +177,7 @@ class alumneSchema{
 
 		var linia='<li>'+paramDoc['document'];
 		if (paramDoc['urlInfo']!=undefined){
-			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"><i class="fas fa-info-circle"></i></a>'
+			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"> (+ info)</a>'
 		}
 		linia+='</li>'
 		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia)
@@ -184,9 +206,6 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.proteccioDades);
 		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.justZonaInfluencia);
-
-		document.getElementById('docAddicionals').style.display='initial';
-
 	}
 
 	if (Alumne.adaptacio){
@@ -218,15 +237,38 @@ function Calcula(){
 
 		switch (Alumne.situacioTaxes){
 			case "atur":
-				alert('Aturat');
+				Alumne.afegeixDocument(altresDocuments.infPeriodeInin);
+				break;			
+			case "fne":
+				Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
+				break;
+			case "disc":
+				Alumne.afegeixDocument(altresDocuments.cercDiscapacitat);
+				break;
+			case "terr":
+				Alumne.afegeixDocument(altresDocuments.vicTerrorisme);
+				break;
+			case "gen":
+				Alumne.afegeixDocument(altresDocuments.vicGenere);
+				break;
+			case "vulec":
+				Alumne.afegeixDocument(altresDocuments.vulnerabilitatEconomica);
+				break;
+			case "tute":
+				Alumne.afegeixDocument(altresDocuments.joveTutelat);
+				break;
+			case "llib":
+				Alumne.afegeixDocument(altresDocuments.privLlibertat);
 				break;
 		}
-
-		// Famílina nombrosa
-
 	}
 
 	document.getElementById('tramits').style.display='initial';
+	if ((Alumne.situacioTaxes!='ord')||(!Alumne.matriculat1819)){
+		document.getElementById('docAddicionals').style.display='initial';
+	}else{
+
+	}
 }
 
 function Neteja(netejaFormulari=true){

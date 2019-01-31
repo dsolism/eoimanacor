@@ -102,6 +102,7 @@ fieldset{
 
 #tramits, #docAddicionals{
 	display:none;
+	margin-bottom: 3em;
 }
 
 .contenidor1{
@@ -151,8 +152,8 @@ td, th{
 	padding: 2px;
 	background-color: #c6c6c6;
 	border: 1px solid black;
-	z-index: 1;
-	position: fixed;
+	float: right;
+	position: absolute;
 }
 
 #avisTrasllatExpedient, #avisAdaptacio{
