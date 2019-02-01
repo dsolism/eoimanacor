@@ -1,6 +1,8 @@
+// Si l'usuari declara ser antic alumne, mostram les preguntes referents a la
+// seva antiguitat: si ja està matriculat al curs acadèmic actual i si s'ha de
+// demanar trasllat d'expedient*/
 function mostraAnticAlumne(mostrarPreguntes){
 	
-	/*Si l'usuari declara ser antic alumne, mostram les preguntes referents a la seva antiguitat: si ja està matriculat al curs acadèmic actual i si s'ha de demanar trasllat d'expedient*/
 
 	apartat=document.getElementById('preguntesAnticAlumne')
 	
@@ -14,10 +16,9 @@ function mostraAnticAlumne(mostrarPreguntes){
 		apartat.style.display='none';
 		document.getElementsByName('alumnePresencial')[0].required=false;
 	}
-
 }
 
-
+// Definició de tràmits i documents ("base de dades")
 const taxes = {
 	"oberturaExpedient":{
 		"tramit":"Pagament obertura d'expedient",
@@ -61,6 +62,20 @@ const taxes = {
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
 		}
 	},
+	"Matrícula":{
+		"tramit": "Pagament matrícula",
+		"document": "Model 046",
+		"ord":{
+			"textBoto":"Pagau (150,38)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6142",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6148"
+		},
+		"fng":{
+			"textBoto":"Pagau (22,79)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6145",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
+		}
+	},
 	"urlInfo":""
 }
 
@@ -77,7 +92,7 @@ const tramits = {
 		"tramit":"Adaptació d'examen",
 		"document":"Sol·licitud d'adaptació",
 		"textBoto":"Imprimiu",
-		"urlTramit":"https://www.eoimanacor.com/adaptacions-proves-de-certificacio/",
+		"urlTramit":"https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/01/28205526/Sol%C2%B7licitud_adaptaci%C3%B3.pdf",
 		"urlInfo":"https://www.eoimanacor.com/adaptacions-proves-de-certificacio/"
 	},
 
@@ -88,11 +103,7 @@ const tramits = {
 		"urlTramit":"https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2018/06/28082538/AUTORITZACIO-US-DADES-PERSONALS.pdf",
 		"urlInfo":"https://www.eoimanacor.com/us-de-dades-personals/"
 	},
-	"zonaInfluencia":{
-		"tramit":"Zona d'influència",
-		"document":"Justificant adscripció a la zona d'influència",
-		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/"
-	},
+
 	"trasllatExpedient":{
 		"tramit":"Trasllat d'expedient",
 		"document":"Sol·licitud de trasllat",
@@ -137,6 +148,8 @@ const altresDocuments = {
 	}
 }
 
+const nivell = ['primer', 'segon', 'tercer', 'quart', 'cinquè', 'sisè'];
+
 // Creació plantilla objecte alumne
 class alumneSchema{
 	
@@ -156,19 +169,32 @@ class alumneSchema{
 	}
 
 
-	afegeixTramit(paramTramit){
+	afegeixTramit(paramTramit, unitats=0){
 		
 		var boto = '<a href="'+paramTramit.urlTramit+'" target="_blank"><button>'+paramTramit.textBoto+'</button></a>';
 		var info = '<a href="'+paramTramit.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
-		var linia ='<tr><td>'+paramTramit.tramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var textTramit = paramTramit.tramit;
+
+		if (unitats!=0){
+			textTramit += ' ' + nivell[unitats] + ' nivell';
+		}
+
+		var linia ='<tr><td>'+textTramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 	}
 
-	afegeixPagament(taxa, situacio, condicio){
+	afegeixPagament(taxa, situacio, condicio, unitats=0){
 
 		var boto = '<a href="'+taxa[situacio][condicio]+'" target="_blank"><button>'+taxa[situacio].textBoto+'</button></a>';
 		var info = '<a href="'+taxes.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
-		var linia ='<tr><td>'+taxa.tramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var textTramit = taxa.tramit;
+
+		if (unitats!=0){
+			textTramit += ' ' + nivell[unitats] + ' nivell';
+		}
+
+		var linia ='<tr><td>'+textTramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 
 	}
@@ -184,6 +210,7 @@ class alumneSchema{
 	}
 }
 
+// Funció principal que obté els tràmits i documents a presentar
 function Calcula(){
 
 	// Llevam els possibles resultats del formulari, per si l'han fet servir més d'una vegada
@@ -200,18 +227,24 @@ function Calcula(){
 	// Cream l'objecte alumne
 	Alumne = new alumneSchema(condicioAlumne, matriculat1819, nombreMatricules, situacioTaxes, adaptacio, trasllat);
 
-	Alumne.afegeixTramit(tramits.matrTelematica);
+	for (i=0;i<Alumne.nombreMatricules;i++){
+		Alumne.afegeixTramit(tramits.matrTelematica, i);
+	}
+	
 
+	// Documentacó per alumnes no matriculats com a oficials al present 2018-19
 	if (!Alumne.matriculat1819){
 		Alumne.afegeixTramit(tramits.proteccioDades);
 		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.justZonaInfluencia);
 	}
 
+	// Sol·licitud d'adaptació
 	if (Alumne.adaptacio){
 		Alumne.afegeixTramit(tramits.adaptacioExamen);
 	}
 
+	// Sol·licitud de trasllat
 	if (Alumne.trasllat){
 		Alumne.afegeixTramit(tramits.trasllatExpedient);
 	}
@@ -231,7 +264,12 @@ function Calcula(){
 
 		// Drets d'examen: un pagament per cada idioma i nivell
 		for(i=0;i<Alumne.nombreMatricules;i++){
-			Alumne.afegeixPagament(taxes.dretsExamen, Alumne.situacioTaxes, Alumne.condicioAlumne);
+			Alumne.afegeixPagament(taxes.dretsExamen, Alumne.situacioTaxes, Alumne.condicioAlumne, i);
+		}
+
+		// Si és família nombrosa general, sol·licitam també el títol corresponent
+		if (Alumne.situacioTaxes=='fng'){
+			Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
 		}
 	}else{ // L'alumne té exempció o bonificació
 
@@ -271,6 +309,7 @@ function Calcula(){
 	}
 }
 
+// Restauració del formulari
 function Neteja(netejaFormulari=true){
 
 	// Buidam els resultats i els amagam
