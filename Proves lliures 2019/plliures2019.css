@@ -164,6 +164,13 @@ li .fa-info-circle {
 	margin-left: 0.7em;
 }
 
+#popup{
+	display: none;
+	border: 1px solid black;
+	float: right;
+	position: absolute;
+}
+
 /*label{
 	display: block;
 	padding-bottom: 0.8em;

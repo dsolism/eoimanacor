@@ -120,7 +120,8 @@ const altresDocuments = {
 	},
 	"justZonaInfluencia":{
 		"document":"Justificant zona d'influència",
-		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/"
+		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/",
+		"popup":"<span onclick=\"mostraAvis('popup')\" onclickout=\"amagaAvis('popup')\">Popup</span><span id='popup'><ul><li>Certificat d'empadronament</li><li>Contracte laboral</li></ul></span>"
 	},
 	"infPeriodeInin":{
 		"document":"Informe de periode ininterromput inscrit en situació de desocupació"
@@ -204,6 +205,9 @@ class alumneSchema{
 		var linia='<li>'+paramDoc['document'];
 		if (paramDoc['urlInfo']!=undefined){
 			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"> (+ info)</a>'
+		}
+		if (paramDoc['popup']!=undefined){
+			linia+= paramDoc['popup'];
 		}
 		linia+='</li>'
 		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia)
