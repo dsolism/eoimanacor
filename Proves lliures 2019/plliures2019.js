@@ -121,7 +121,7 @@ const altresDocuments = {
 	"justZonaInfluencia":{
 		"document":"Justificant zona d'influència",
 		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/",
-		"popup":"<span onclick=\"mostraAvis('popup')\" onclickout=\"amagaAvis('popup')\">Popup</span><span id='popup'><ul><li>Certificat d'empadronament</li><li>Contracte laboral</li></ul></span>"
+		"popup":"<span class='contenidorAvis' onclick=\"mostraAvis('popup')\" onmouseout=\"amagaAvis('popup')\"><i class='fas fa-question-circle'></i></span><span id='popup' class='avis'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span>"
 	},
 	"infPeriodeInin":{
 		"document":"Informe de periode ininterromput inscrit en situació de desocupació"
@@ -203,14 +203,20 @@ class alumneSchema{
 	afegeixDocument(paramDoc){
 
 		var linia='<li>'+paramDoc['document'];
-		if (paramDoc['urlInfo']!=undefined){
-			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"> (+ info)</a>'
-		}
+
+		// Si té popup, l'afegim
 		if (paramDoc['popup']!=undefined){
 			linia+= paramDoc['popup'];
 		}
+
+		// Si té pàgina d'informació, l'afegim
+		if (paramDoc['urlInfo']!=undefined){
+			linia+='<a href="'+paramDoc['urlInfo']+'" target="_blank"> (+ info)</a>'
+		}
+		
 		linia+='</li>'
-		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia)
+
+		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia);
 	}
 }
 
@@ -305,6 +311,8 @@ function Calcula(){
 		}
 	}
 
+	// Si l'alumne no està matriculat al curs 18/19 o té exempció de pagament de taxes, haurà d'aportar documentació addicional
+	// Per això feim aquest apartat visible
 	document.getElementById('tramits').style.display='initial';
 	if ((Alumne.situacioTaxes!='ord')||(!Alumne.matriculat1819)){
 		document.getElementById('docAddicionals').style.display='initial';
@@ -343,3 +351,10 @@ function mostraAvis(paramId){
 function amagaAvis(paramId){
 	document.getElementById(paramId).style.display='none';
 }
+
+// window.onclick=function(){
+// 	if(document.getElementById('popup')!=undefined){
+// 		// document.getElementById('popup').style.display='none';
+// 		alert('hiiiiii');
+// 	}
+// }

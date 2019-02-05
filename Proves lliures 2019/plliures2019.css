@@ -147,28 +147,29 @@ td, th{
 	color: #999999;
 }
 
-.avis{
-	font-size: 0.8em;
-	padding: 2px;
-	background-color: #c6c6c6;
-	border: 1px solid black;
-	float: right;
-	position: absolute;
+.contenidorAvis{
+	position: relative;
 }
 
-#avisTrasllatExpedient, #avisAdaptacio{
+.avis{
+	font-size: 0.8em;
+	padding: 5px;
+	background-color: #c6c6c6;
+	/*border: 1px solid black;*/
+	border-radius: 5px;
+	/*float: right;*/
+	position: absolute;
+	top:0;
+	/*z-index: 1;*/
+	text-align: left;
+}
+
+#avisTrasllatExpedient, #avisAdaptacio, #popup{
 	display: none;
 }
 
 li .fa-info-circle {
 	margin-left: 0.7em;
-}
-
-#popup{
-	display: none;
-	border: 1px solid black;
-	float: right;
-	position: absolute;
 }
 
 /*label{
