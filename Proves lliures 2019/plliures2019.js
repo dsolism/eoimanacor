@@ -31,6 +31,11 @@ const taxes = {
 			"textBoto": "Pagau (11,96 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146"
 			
+		},
+		"fmpg":{
+			"textBoto": "Pagau (11,96 €)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146"
+			
 		}
 	},
 	"serveisGenerals":{
@@ -46,18 +51,28 @@ const taxes = {
 			"textBoto": "Pagau (5,70 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151"
+		},
+		"fmpg":{
+			"textBoto": "Pagau (5,70 €)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151"
 		}
 	},
 	"dretsExamen":{
 		"tramit": "Pagament drets examen",
 		"document": "Model 046",
 		"ord":{
-			"textBoto":"Pagau (45,57)",
+			"textBoto":"Pagau (45,57 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6078",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6084"
 		},
 		"fng":{
-			"textBoto":"Pagau (22,79)",
+			"textBoto":"Pagau (22,79 €)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6081",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
+		},
+		"fmpg":{
+			"textBoto":"Pagau (22,79 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6081",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
 		}
@@ -66,12 +81,17 @@ const taxes = {
 		"tramit": "Pagament matrícula",
 		"document": "Model 046",
 		"ord":{
-			"textBoto":"Pagau (150,38)",
+			"textBoto":"Pagau (150,38 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6142",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6148"
 		},
 		"fng":{
-			"textBoto":"Pagau (22,79)",
+			"textBoto":"Pagau (75,19 €)",
+			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6145",
+			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
+		},
+		"fmpg":{
+			"textBoto":"Pagau (75,19 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6145",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
 		}
@@ -121,13 +141,16 @@ const altresDocuments = {
 	"justZonaInfluencia":{
 		"document":"Justificant zona d'influència",
 		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/",
-		"popup":"<span class='contenidorAvis' onclick=\"mostraAvis('popup')\" onmouseout=\"amagaAvis('popup')\"><i class='fas fa-question-circle'></i></span><span id='popup' class='avis'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span>"
+		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i></span><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span>"
 	},
 	"infPeriodeInin":{
 		"document":"Informe de periode ininterromput inscrit en situació de desocupació"
 	},
 	"familiaNombrosa":{
 		"document":"Títol família nombrosa"
+	},
+	"familiaMonop":{
+		"document": "Llibre de família o sentència judicial on consti la guàrdia i custòdia"
 	},
 	"cercDiscapacitat":{
 		"document":"Certificació de discapacitat"
@@ -139,13 +162,13 @@ const altresDocuments = {
 		"document":"Ordre allunyament en vigor"
 	},
 	"joveTutelat":{
-		"document":"Document de tutela"
+		"document":"Exempció de pagament per ser jove tutelat o en acolliment familiar: certificat expedit per l'IMAS"
 	},
 	"privLlibertat":{
-		"document":"Document acreditatiu de la privació de llibertat"
+		"document":"Exempció de pagament per privació de llibertat: resolució judicial"
 	},
 	"vulnerabilitatEconomica":{
-		"document":"Informe emès pels serveis socials"
+		"document":"Exempció de pagament per vulnerabilitat econòmica: certificat expedit per la Direcció General de Planificació i Serveis Socials o l'IMAS"
 	}
 }
 
@@ -260,7 +283,7 @@ function Calcula(){
 	}
 
 	// Taxes (només si és ordinari o família nombrosa general)
-	if ((Alumne.situacioTaxes=='ord')||(Alumne.situacioTaxes=='fng')){
+	if ((Alumne.situacioTaxes=='ord')||(Alumne.situacioTaxes=='fng')||(Alumne.situacioTaxes=='fmpg')){
 
 		// Obertura d'expedient
 		if (Alumne.condicioAlumne=='nouAlumne'){
@@ -280,6 +303,10 @@ function Calcula(){
 		// Si és família nombrosa general, sol·licitam també el títol corresponent
 		if (Alumne.situacioTaxes=='fng'){
 			Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
+		} else{
+			if (Alumne.situacioTaxes=='fmpg'){
+				Alumne.afegeixDocument(altresDocuments.familiaMonop);
+			}
 		}
 	}else{ // L'alumne té exempció o bonificació
 
@@ -289,6 +316,8 @@ function Calcula(){
 				break;			
 			case "fne":
 				Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
+			case "fmpe":
+				Alumne.afegeixDocument(altresDocuments.familiaMonop);
 				break;
 			case "disc":
 				Alumne.afegeixDocument(altresDocuments.cercDiscapacitat);
@@ -311,13 +340,14 @@ function Calcula(){
 		}
 	}
 
+	
+	// Feim l'apartat tràmits visible
+	document.getElementById('tramits').style.display='initial';
+
 	// Si l'alumne no està matriculat al curs 18/19 o té exempció de pagament de taxes, haurà d'aportar documentació addicional
 	// Per això feim aquest apartat visible
-	document.getElementById('tramits').style.display='initial';
 	if ((Alumne.situacioTaxes!='ord')||(!Alumne.matriculat1819)){
 		document.getElementById('docAddicionals').style.display='initial';
-	}else{
-
 	}
 }
 
@@ -343,18 +373,17 @@ function Neteja(netejaFormulari=true){
 }
 
 // Mostra una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
-function mostraAvis(paramId){
+/*function mostraAvis(paramId){
 	document.getElementById(paramId).style.display='initial';
 }
 
 // Amaga una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
 function amagaAvis(paramId){
 	document.getElementById(paramId).style.display='none';
-}
+}*/
 
-// window.onclick=function(){
-// 	if(document.getElementById('popup')!=undefined){
-// 		// document.getElementById('popup').style.display='none';
-// 		alert('hiiiiii');
-// 	}
-// }
+function mostra(lloc, numero){
+	
+	document.getElementById(lloc).classList.toggle("ocult");
+	document.getElementsByClassName('fa-question-circle')[numero].classList.toggle("destacat");
+}
