@@ -96,7 +96,7 @@ const taxes = {
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
 		}
 	},
-	"urlInfo":""
+	"urlInfo":"https://www.eoimanacor.com/pagament-taxes-proves-lliures-2019/"
 }
 
 const tramits = {
@@ -105,7 +105,7 @@ const tramits = {
 		"document":"Resguard de matrícula",
 		"textBoto":"Matriculau",
 		"urlTramit":"https://www.informaticacentros.com/centrosnet/libres_mat/index.php?tcen=EOI&cen=PM4",
-		"urlInfo":""
+		"urlInfo":"https://www.eoimanacor.com/matricula-telematica-proves-lliures/"
 	},
 
 	"adaptacioExamen":{
@@ -144,22 +144,22 @@ const altresDocuments = {
 		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i></span><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span>"
 	},
 	"infPeriodeInin":{
-		"document":"Informe de periode ininterromput inscrit en situació de desocupació"
+		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació"
 	},
 	"familiaNombrosa":{
-		"document":"Títol família nombrosa"
+		"document":"Exempció o bonificació de pagament per família nombrosa: original i fotocòpia del títol família nombrosa"
 	},
 	"familiaMonop":{
-		"document": "Llibre de família o sentència judicial on consti la guàrdia i custòdia"
+		"document": "Exempció o bonificació de pagament per família monoparental: llibre de família o sentència judicial on consti la guàrdia i custòdia"
 	},
 	"cercDiscapacitat":{
-		"document":"Certificació de discapacitat"
+		"document":"Exempció de pagament per discapacitat: certificació de discapacitat"
 	},
 	"vicTerrorisme":{
-		"document":"Certificat de víctima de terrorisme"
+		"document":"Exempció de pagament per víctima de terrorisme: certificat emès pel Ministeri de l’Interior"
 	},
 	"vicGenere":{
-		"document":"Ordre allunyament en vigor"
+		"document":"Exempció de pagament per violència de gènere: sentència condemnàtoria, ordre d'allunyament o informe dels serveis socials"
 	},
 	"joveTutelat":{
 		"document":"Exempció de pagament per ser jove tutelat o en acolliment familiar: certificat expedit per l'IMAS"
@@ -246,6 +246,8 @@ class alumneSchema{
 // Funció principal que obté els tràmits i documents a presentar
 function Calcula(){
 
+	avisData();
+
 	// Llevam els possibles resultats del formulari, per si l'han fet servir més d'una vegada
 	Neteja(false);
 
@@ -316,6 +318,7 @@ function Calcula(){
 				break;			
 			case "fne":
 				Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
+				break;
 			case "fmpe":
 				Alumne.afegeixDocument(altresDocuments.familiaMonop);
 				break;
@@ -372,18 +375,24 @@ function Neteja(netejaFormulari=true){
 	}
 }
 
-// Mostra una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
-/*function mostraAvis(paramId){
-	document.getElementById(paramId).style.display='initial';
-}
-
-// Amaga una missatge flotant si l'usuari posa el mouse damunt el botó 'question'
-function amagaAvis(paramId){
-	document.getElementById(paramId).style.display='none';
-}*/
-
 function mostra(lloc, numero){
 	
 	document.getElementById(lloc).classList.toggle("ocult");
 	document.getElementsByClassName('fa-question-circle')[numero].classList.toggle("destacat");
+}
+
+// Funció que regula l'avís que sortirà quan l'usuari vulgui saber els documents que ha de lliurar
+function avisData(){
+
+	var inici = new Date(2019, 1, 19, 9,0,0),
+		final = new Date(2019, 2, 11, 22, 0, 0),
+		avui = new Date(),
+		avis;
+
+	if ((avui<inici)||(avui>final)){
+		avis='El termini no està obert. Podeu consultar els documents només a títol informatiu.'
+	}else{
+		avis='Recordau que fins que no hàgiu presentat els documents a la Secretaria del centre no es considerarà formalitzada la matrícula.'
+	}
+	alert(avis);
 }

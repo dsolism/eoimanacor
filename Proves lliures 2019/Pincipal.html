@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proves lliures 2019 - Pàgina principal</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="plliures2019.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<script src="Principal.js"></script>
+</head>
+<body>
+
+	<!-- Finestra modal amb les novetats del 2019 -->
+	<div id="novetats19" class="modal">
+		<div class="modal-content">
+			<h3>Novetats proves certificació 2019</h3>
+			<ul>
+				<li>Els nivells Intermedi, Avançat, C1 i C2 es corresponen respectivament i són equivalents a efectes de certificació amb els nivells Intermedi B1, Intermedi B2, Avançat C1 i Avançat C2 dels ensenyaments d'idiomes de règim especial, regulats pel Reial decret 1041/2017, de 22 de desembre.</li>
+				<li>Per obtenir la qualificació global d'apte, en el nivell bàsic, i segons estableix el Decret 6/2010, de 22 de gener, (BOIB núm. 16 de 2 de febrer) del currículum dels ensenyaments del nivell bàsic d'idiomes a la Comunitat Autònoma de les Illes Balears a l'apartat 6.8.3 de l'annex, cal superar cada part de la prova amb una puntuació mínima del 60%. Igualment, la globalitat de la prova també s'ha de superar amb un 60% de la puntuació total.</li>
+				<li>En els nivells Intermedi, Avançat, C1 i C2 si la puntuació obtinguda en una de les parts de la prova - i només en una - no arriba al 60%, però és igual o superior al 50%, la puntuació es compensarà amb la nota obtinguda en la resta de les parts avaluades, sempre que la qualificació global arribi al 60%.</li>
+				<li>Les proves dels nivells intermedi, avançat, C1 i C2 consten de les següents activitats de llengua recollides a l'annex I del currículum basic regulat pel Reial decret 1041/2017, de 22 de desembre: comprensió de textos orals, comprensió de textos escrits, producció i coproducció de textos escrits i mediació, i producció i coproducció de textos orals.</li>
+				<li>Les proves de certificació del nivell bàsic A2 consten de les següents activitats de llengua: comprensió de textos orals, comprensió de textos escrits, producció i coproducció de textos escrits, i producció i coproducció de textos orals.</li>
+			</ul>
+			<div class="centrat">
+				<button class="tancar-modal" onclick="tancaModal()">N'estic assebentat</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Targeta 1: Inscripció -->
+	<div>
+		<h2>Inscripció</h2>
+		<div class="targeta">
+			<ul>
+				<li>Termini: De les <strong>9:00h</strong> del <strong>19 de febrer</strong> a les <strong>22:00h</strong> de l'<strong>11 de març</strong> de 2019</li>
+				<li>
+					Nivells a l'EOI Manacor
+					<ul>
+						<li><strong>Anglès</strong>: Bàsic A2, Intermedi (B1), Avançat (B2), C1 i C2</li>
+						<li><strong>Alemany</strong>: Bàsic A2, Intermedi (B1) i Avançat (B2)</li>
+						<li><strong>Francès</strong>: Bàsic A2, Intermedi (B1) i Avançat (B2)</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="contenidor1">
+				<div class="centrat">
+					<button class="botoBlau">Documents a presentar</button>
+				</div>
+				<div class="centrat">
+					<button class="botoBlau" onclick="mostraModal()">Novetats proves 2019</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Targeta 2: Informacions d'interès -->
+	<div>
+		<h2>Informacíons d'interès</h2>
+		<div class="targeta">
+			<div class="contenidor2">
+				<div>
+					<a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/01/24212748/Calendari-Proves-lliures-2019.pdf" target="_blank"><button class="botoBlau">Calendari</button></a>
+				</div>
+				<div>
+					<a href="https://www.eoimanacor.com/pagament-taxes-proves-lliures-2019/" target="_blank"><button class="botoBlau">Taxes</button></a>
+				</div>
+				<div>
+					<a href="https://www.eoimanacor.com/faq-proves-lliures/" target="_blank"><button class="botoBlau">Preguntes freqüents</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
