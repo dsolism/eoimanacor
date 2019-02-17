@@ -233,3 +233,7 @@ li .fa-info-circle {
 .tancar-modal:hover{
 	background-color: #fc7171; /*vermell atenuat*/
 }
+
+.contenidorTaula{
+	overflow-y: auto;
+}
