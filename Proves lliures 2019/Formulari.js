@@ -1,6 +1,6 @@
 // Si l'usuari declara ser antic alumne, mostram les preguntes referents a la
 // seva antiguitat: si ja està matriculat al curs acadèmic actual i si s'ha de
-// demanar trasllat d'expedient*/
+// demanar trasllat d'expedient
 function mostraAnticAlumne(mostrarPreguntes){
 	
 
@@ -141,7 +141,7 @@ const altresDocuments = {
 	"justZonaInfluencia":{
 		"document":"Justificant zona d'influència",
 		"urlInfo":"https://www.eoimanacor.com/zones-dinfluencia/",
-		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i></span><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span>"
+		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span></span>"
 	},
 	"infPeriodeInin":{
 		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació"
