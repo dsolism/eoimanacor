@@ -21,7 +21,16 @@
 				<li>Les proves de certificació del nivell bàsic A2 consten de les següents activitats de llengua: comprensió de textos orals, comprensió de textos escrits, producció i coproducció de textos escrits, i producció i coproducció de textos orals.</li>
 			</ul>
 			<div class="centrat">
-				<button class="tancar-modal" onclick="tancaModal()">N'estic assebentat</button>
+				<form action="javascript:tancaModal()">
+					<div>
+						<input type="checkbox" name="condicions2019" id="condicions2019" autocomplete="off" required>
+						<label for="condicions2019">He llegit les noves les noves condiciones de les proves lliures 2019.</label>
+						<div>
+							<button class="tancar-modal" type="submit">Continuar</button>
+						</div>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
