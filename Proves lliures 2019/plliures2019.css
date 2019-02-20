@@ -117,6 +117,7 @@ fieldset{
 	padding-top: 1em;
 	width: 50%;
 	border-radius: 5px;
+	text-align: left;
 }
 
 #tramits, #docAddicionals{
@@ -185,12 +186,10 @@ td, th{
 .avis{
 	font-size: 0.8em;
 	padding: 5px;
-	/*background-color: #c6c6c6;*/
 	background-color: #9304e5;
 	color: #ffffff;
 	border-radius: 5px;
 	position: absolute;
-	top:0;
 	text-align: left;
 }
 
@@ -223,17 +222,55 @@ li .fa-info-circle {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  overflow: auto;
 }
 
 .tancar-modal{
-	background-color: #ff0000; /*rojo pasión*/
+	background-color: #428BCA;
 	color: white;
 }
 
 .tancar-modal:hover{
-	background-color: #fc7171; /*vermell atenuat*/
+	background-color: #86ACCE;
 }
 
 .contenidorTaula{
 	overflow-y: auto;
+}
+
+/*Popup Atenció al públic*/
+.apContainer{
+	position: relative;
+	display: inline-block;
+	border: 3px solid pink;
+	width: 100%;
+}
+
+.apContainer .apPopup {
+	background-color: #555;
+  	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -130px;
+	margin-right: -100px;
+	visibility: hidden;
+}
+
+.apContainer .show {
+  visibility: visible;
+}
+
+/*Paràmetre responsive*/
+@media screen and (max-width: 545px){
+	fieldset{
+		width: 75%;
+	}
+	body{
+		font-size: 0.8em;
+	}
 }

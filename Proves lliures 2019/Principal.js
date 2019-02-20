@@ -8,3 +8,8 @@ function tancaModal(){
 function mostraModal(){
 	document.getElementById("novetats19").style.display="initial";
 }
+
+function mostraAP(){
+	var popup = document.getElementById("apPopup");
+	popup.classList.toggle("show");
+}
