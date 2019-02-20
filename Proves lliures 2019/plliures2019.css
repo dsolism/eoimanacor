@@ -1,8 +1,12 @@
 body{
-	max-width: 800px;
+	/*max-width: 800px;*/
 	margin: auto;
 	font-family: lato;
-	text-align: justify;
+	/*text-align: justify;*/
+}
+
+#caixa{
+	position:relative;
 }
 
 p{text-align: justify;}
@@ -110,6 +114,7 @@ button:hover{
 
 input[type="checkbox"]{
 	transform: scale(1.2);
+	margin-top: 10px;
 }
 
 fieldset{
@@ -137,7 +142,8 @@ fieldset{
 .contenidor2{
 	display: grid;
 	grid-template-columns: 33.3% 33.3% 33.3%;
-	grid-gap: 1em;
+	grid-row-gap: 1em;
+	width: 100%
 }
 
 .contenidor2 .botoBlau{
@@ -150,7 +156,7 @@ fieldset{
 
 .far, .fas{
 	margin-right: 0.8em;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 table{
@@ -206,10 +212,9 @@ li .fa-info-circle {
 }
 
 .modal{
-	position: fixed;
+	position: absolute;
 	z-index: 1;
-	max-width: 800px;
-	width: auto;
+	width: 100%;
 	height: 100%;
 	overflow: auto;
 	background-color: rgba(0,0,0,0.6);
@@ -227,7 +232,7 @@ li .fa-info-circle {
 
 .tancar-modal{
 	background-color: #428BCA;
-	color: white;
+	color: white
 }
 
 .tancar-modal:hover{
@@ -241,22 +246,22 @@ li .fa-info-circle {
 /*Popup Atenció al públic*/
 .apContainer{
 	position: relative;
-	display: inline-block;
-	border: 3px solid pink;
+	/*display: inline-block;*/
 	width: 100%;
+	top: 35%;
 }
 
 .apContainer .apPopup {
-	background-color: #555;
+	background-color: #9304e5;
   	color: #fff;
-	text-align: center;
+	text-align: left;
 	border-radius: 6px;
 	padding: 8px 0;
 	position: absolute;
 	z-index: 1;
 	bottom: 125%;
 	left: 50%;
-	margin-left: -130px;
+	margin-left: -240px;
 	margin-right: -100px;
 	visibility: hidden;
 }
@@ -265,12 +270,38 @@ li .fa-info-circle {
   visibility: visible;
 }
 
-/*Paràmetre responsive*/
-@media screen and (max-width: 545px){
+#atencioPublic{
+	border: 1px solid black;
+	border-radius:5px;
+	padding: 10px;
+}
+
+#atencioPublic:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#atencioPublic:focus{
+	text-decoration: none;
+}
+
+/*Paràmetres responsive*/
+@media screen and (max-width: 1080px){
 	fieldset{
 		width: 75%;
 	}
-	body{
+	#caixa{
 		font-size: 0.8em;
 	}
+	.apContainer .apPopup{
+		margin-left: -280px;
+	}
+
+	.contenidor2 .botoBlau{
+		width: 75%;
+	}
+
+	.botoBlau{
+		font-size: 0.8em;
+	}	
 }

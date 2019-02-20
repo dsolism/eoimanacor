@@ -9,7 +9,9 @@ function mostraModal(){
 	document.getElementById("novetats19").style.display="initial";
 }
 
+// Mostra popup d'atenció al públic
 function mostraAP(){
 	var popup = document.getElementById("apPopup");
 	popup.classList.toggle("show");
+	document.getElementById('atencioPublic').classList.toggle("destacat");
 }
