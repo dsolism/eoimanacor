@@ -1,5 +1,5 @@
 body{
-	/*max-width: 800px;*/
+	max-width: 800px;
 	margin: auto;
 	font-family: lato;
 	/*text-align: justify;*/
@@ -10,6 +10,7 @@ body{
 }
 
 p{text-align: justify;}
+
 p+p{text-indent: 3em;}
 
 input{
@@ -195,8 +196,27 @@ td, th{
 	background-color: #9304e5;
 	color: #ffffff;
 	border-radius: 5px;
-	position: absolute;
 	text-align: left;
+}
+
+#avisAdaptacio{
+	position: absolute;
+	bottom: 3em;
+	left: -0.5px;
+}
+
+#avisTrasllatExpedient{
+	position: absolute;
+	top:3em;
+	left: -0.5em;
+	border: solid 1px black;
+}
+
+/*Popup zona d'influència*/
+#popup{
+	position: absolute;
+	top:200%;
+	margin-left: -300%;
 }
 
 li .fa-info-circle {
@@ -285,10 +305,24 @@ li .fa-info-circle {
 	text-decoration: none;
 }
 
+/*Estrucutura per web en Wordpress*/
+label{padding-left: 5px; padding-right:1em;}
+
+input[type="number"]{width:3em;}
+
+select[name="situacio"]{width:28em;}
+button{font-size:16px;}
+
+#columnaTramit{width:10em;}
+
+button:focus{background-color:#00c18e}
+
+.contenidorTaula{overflow-x:auto;}
+
 /*Paràmetres responsive*/
-@media screen and (max-width: 1080px){
+@media screen and (max-width: 1280px){
 	fieldset{
-		width: 75%;
+		width: 100%;
 	}
 	#caixa{
 		font-size: 0.8em;
