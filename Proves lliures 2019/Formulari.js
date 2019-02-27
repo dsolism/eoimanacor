@@ -169,6 +169,9 @@ const altresDocuments = {
 	},
 	"vulnerabilitatEconomica":{
 		"document":"Exempció de pagament per vulnerabilitat econòmica: certificat expedit per la Direcció General de Planificació i Serveis Socials o l'IMAS"
+	},
+	"fotos":{
+		"document":"Dues fotos grandària carnet"
 	}
 }
 
@@ -272,6 +275,11 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.proteccioDades);
 		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.justZonaInfluencia);
+	}
+
+	// Si és nou alumne, demanam 2 fotos
+	if (Alumne.condicioAlumne=='nouAlumne'){
+		Alumne.afegeixDocument(altresDocuments.fotos);
 	}
 
 	// Sol·licitud d'adaptació
