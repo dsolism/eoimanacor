@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finestra modal 046</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{max-width: 800px; margin: auto; font-family: noto sans;}
+		.contenidorFinestraModal{
+			position: absolute;
+			background-color: rgba(0,0,0,0.6);
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			top: 0;
+			overflow: auto;
+			float: right;
+		}
+		#exempleModel046{
+			width: 300px;
+			/*position: relative;
+			left: 20em;
+			top:25em;*/
+
+		}
+		.amagat{visibility: hidden;}
+		#linkExempleModel046{
+			color: blue;
+		}
+		#linkExempleModel046:hover{text-decoration: underline; cursor: pointer;}
+		#caixa{position: relative;}
+	</style>
+	<script type="text/javascript">
+		function mostra046(){
+			var model046 = document.getElementsByClassName('contenidorFinestraModal')[0];
+			model046.classList.toggle('amagat');
+		}
+	</script>
+</head>
+<body>
+	<div id="caixa">
+		<h1>Finestra modal 046</h1>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus ullamcorper velit eu ipsum. Ut pellentesque, est in volutpat cursus, risus mi viverra augue, at pulvinar turpis leo sed orci. Donec ipsum. Curabitur felis dui, ultrices ut, sollicitudin vel, rutrum at, tellus.</p>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus ullamcorper velit eu ipsum. Ut pellentesque, est in volutpat cursus, risus mi viverra augue, at pulvinar turpis leo sed orci. Donec ipsum. Curabitur felis dui, ultrices ut, sollicitudin vel, rutrum at, tellus.</p>
+		<p>Només s'acceptarà un <span id="linkExempleModel046" onclick="mostra046()">model 046</span>.</p>
+		<div class="contenidorFinestraModal amagat">
+			<img id="exempleModel046" src="exempleModel046.jpg">
+		</div>
+		
+	</div>
+</body>
+</html>
