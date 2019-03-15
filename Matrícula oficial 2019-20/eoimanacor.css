@@ -2,16 +2,86 @@ body{
 	max-width: 800px;
 	margin: auto;
 	font-family: lato;
-	/*text-align: justify;*/
 }
 
 #contenidorEOI{
 	position:relative;
+	overflow-x: auto;
 }
 
 p{text-align: justify;}
 
 p+p{text-indent: 3em;}
+
+.taulaProces{
+	width: 100%;
+}
+
+.taulaProces .capseleraTaula {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.taulaProces td{
+	border:none;
+}
+
+.taulaProces tbody tr{
+	border-bottom: 1px dotted black;
+	
+}
+
+.taulaProces tbody td{
+	padding-bottom: 1em;
+	
+}
+
+.taulaProces thead{
+	background-color: gray;
+}
+
+.taulaProces caption{
+	padding-bottom: 1em;
+	font-size: 1.5em;
+}
+.icona{
+	text-align: center;
+}
+
+.icona .fas, .fab{
+	font-size: 1.2em;
+	margin-right: 0;
+}
+
+.verd{
+	color:#17b217;
+}
+
+a.verd:hover{
+	color: #085b08;
+}
+
+.negre{
+	color:black;
+}
+
+.vermell{
+	color:red;
+}
+
+.blau{
+	color:blue;
+}
+
+.colA{
+	width: 30%;
+}
+.colB{
+	width: 38%;
+}
+.colC{
+	width: 8%;
+}
 
 input{
 	margin-bottom: 1em;
