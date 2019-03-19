@@ -2,6 +2,8 @@ body{
 	max-width: 800px;
 	margin: auto;
 	font-family: lato;
+	font-size: 18px;
+	font-weight: 300px;
 }
 
 #contenidorEOI{
@@ -28,22 +30,18 @@ p+p{text-indent: 3em;}
 
 .taulaProces tbody tr{
 	border-bottom: 1px dotted black;
-	
 }
 
 .taulaProces tbody td{
 	padding-bottom: 1em;
-	
 }
 
 .taulaProces thead{
 	background-color: gray;
+	color:white;
+	font-weight: bold;	
 }
 
-.taulaProces caption{
-	padding-bottom: 1em;
-	font-size: 1.5em;
-}
 .icona{
 	text-align: center;
 }
@@ -116,6 +114,35 @@ select{
 	margin:1em 0;
 }
 
+dt{
+	font-weight: bold;
+	color: #0200af;
+}
+
+dd{
+	padding-bottom: 0.5em;
+}
+
+.botoBlanc{
+	border: none;
+	border-radius: 5px;
+	background-color: white;
+	padding: 10px;
+}
+
+.botoGris{
+	color:white;
+	background-color: gray;
+}
+
+.botoBlanc:hover{
+	text-decoration: underline;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
 .targeta2{
 	background-color: #f5f5f5;
 	border-radius: 5px;
@@ -143,7 +170,7 @@ input.button{
 	padding: 5px;
 }
 
-button{
+.botoVerd{
 	border:none;
 	background-color: #00c18e;
 	color: white;
@@ -154,7 +181,7 @@ button{
 	font-size: 1em;
 }
 
-button:hover{
+.botoVerd:hover{
 	background-color: #008c67;
 	cursor: pointer;
 }
@@ -167,7 +194,7 @@ button:hover{
 	padding: 10px;
 	border-radius: 5px;
 	margin-right: 1.5em;
-	font-size: 1em;
+	font-size: 16px;
 }
 
 .botoBlau:hover{
@@ -201,23 +228,29 @@ fieldset{
 	margin-bottom: 3em;
 }
 
-.contenidor1{
+.contenidor50{
 	display: grid;
 	grid-template-columns: 50% 50%;
 }
 
-.contenidor1 .botoBlau{
+.contenidor50 button{
 	width: 50%;
+	height:3.8em;
 }
 
-.contenidor2{
+.contenidor50 div{
+	text-align: center;
+}
+
+.contenidor33{
+	padding-top: 1em;
 	display: grid;
 	grid-template-columns: 33.3% 33.3% 33.3%;
 	grid-row-gap: 1em;
 	width: 100%
 }
 
-.contenidor2 .botoBlau{
+.contenidor33 button{
 	width: 90%;
 }
 
@@ -226,7 +259,7 @@ fieldset{
 }
 
 .far, .fas{
-	margin-right: 0.8em;
+	margin-right: 0.4em;
 	font-size: 1em;
 }
 
@@ -385,12 +418,46 @@ button{font-size:16px;}
 
 #columnaTramit{width:10em;}
 
-button:focus{background-color:#00c18e}
+
 
 .contenidorTaula{overflow-x:auto;}
 
+.globus{
+	background-color: gray;
+	color: white;
+	padding: 10px 25px 10px 10px;
+	border-radius: 5px;
+	font-size: 0.8em;
+	z-index: 1;
+}
+
+#globusAtencioPublic{
+	position:absolute;
+	top: -15em;
+}
+
+.contenidorGlobus{
+	position:relative;
+}
+
+.amagat{
+	visibility: hidden;
+}
+
 /*Paràmetres responsive*/
-@media screen and (max-width: 1280px){
+@media screen and (max-width:680px){
+	#globusAtencioPublic{
+		left:-5em;
+	}
+}
+
+@media screen and (max-width:450px){
+	#globusAtencioPublic{
+		left:-9em;
+		top:-16em;
+	}
+}
+/*@media screen and (max-width: 1280px){
 	fieldset{
 		width: 100%;
 	}
@@ -408,4 +475,4 @@ button:focus{background-color:#00c18e}
 	.botoBlau{
 		font-size: 0.8em;
 	}	
-}
+}*/
