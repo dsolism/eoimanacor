@@ -442,6 +442,11 @@ button{font-size:16px;}
 	visibility: hidden;
 }
 
+/*Llevam les vinyetes a les llistes del formulari*/
+form li{
+	list-style-type: none;
+}
+
 /*Paràmetres responsive*/
 @media screen and (max-width:680px){
 	#globusAtencioPublic{
