@@ -4,6 +4,7 @@
 	<title>Horari d'atenció al públic</title>
 	<meta charset="utf-8">
 	<meta name="author" content="David Solís">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<style type="text/css">
 		body{max-width: 1000px; margin: auto; font-family: noto sans;}
 		table{border-collapse: collapse;overflow-x: auto;}
@@ -11,6 +12,8 @@
 		.cellaHorari{font-size: 1.6em; color:white; font-weight: 600;}
 		.verd{background-color: #6aa84f;}
 		.groc{background-color: #f1c232;}
+		.fa-phone {font-size: 1.2em; margin-right: 0.5em;}
+		a {text-decoration: none;}
 	</style>
 </head>
 <body>
@@ -18,39 +21,42 @@
 		<h1>Horari d'atenció al públic</h1>
 	</header>
 	<div id="caixa">
-		<table>
-			<thead>
-				<tr>
-					<th>Dilluns</th>
-					<th>Dimarts</th>
-					<th>Dimcres</th>
-					<th>Dijous</th>
-					<th>Divendres</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td class="cellaHorari verd"><time datetime="09:00">09.00</time> - <time datetime="13:30">13.30</time></td>
-				</tr>				
-				<tr>
-					<td class=" cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
-					<td class=" cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
-					<td class="cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
-					<td class="cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
-					<td class="cellaHorari groc"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time>*</td>
-				</tr>
-			</tbody>
-		</table>
-		<footer>
-			<br>
-			<p>*  Només els divendres lectius: 23 de novembre, 14 de desembre, 25 de gener, 1 i 15 de febrer, 15 i 29 de març, 12 d’abril i 10 de maig</p>
-		</footer>
-		<p>Atenció telefònica: <a href="tel:+34971554152">971 554 152</a></p>
-		<p><em>Nota</em>: l'atenció telefònica està condicionada a l'atenció presencial.</p>
+		<article>
+			<p>La Secretaria del nostre centre es troba a la planta baixa de l’edifici de l’IES Mossèn Alcover, davant la cantina.</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Dilluns</th>
+						<th>Dimarts</th>
+						<th>Dimcres</th>
+						<th>Dijous</th>
+						<th>Divendres</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="cellaHorari verd"><time datetime="09:00">09.00</time> - <time datetime="13:30">13.30</time></td>
+					</tr>				
+					<tr>
+						<td class=" cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
+						<td class=" cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
+						<td class="cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
+						<td class="cellaHorari verd"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time></td>
+						<td class="cellaHorari groc"><time datetime="16:00">16.00</time> - <time datetime="20:30">20.30</time>*</td>
+					</tr>
+				</tbody>
+			</table>
+			<footer>
+				<br>
+				<p>*  Només els divendres lectius: <time datetime="2018-11-23">23 de novembre</time>, <time datetime="2018-12-14">14 de desembre</time>, <time datetime="2019-01-25">25 de gener</time>, <time datetime="2019-02-01">1</time> i <time datetime="2019-02-15">15 de febrer</time>, <time datetime="2019-03-15">15</time> i <time datetime="2019-03-29">29 de març</time>, <time datetime="2019-04-12">12 d’abril</time> i <time datetime="2019-05-10">10 de maig</time></p>
+			</footer>			
+		</article>
+		<p><a href="tel:+34971554152"><i class="fas fa-phone"></i>971 554 152</a></p>
+		<p><em><strong>Nota</strong></em>: l'atenció telefònica està condicionada a la disponibilitat deixada per l'atenció presencial.</p>
 	</div>
 </body>
 </html>
