@@ -5,13 +5,8 @@ body{
 	/*text-align: justify;*/
 }
 
-#caixa{
-	position:relative;
-}
-
 p{text-align: justify;}
 
-p+p{text-indent: 3em;}
 
 input{
 	margin-bottom: 1em;
@@ -25,21 +20,21 @@ select{
 	padding: 2px;
 }
 
-.email{
+/*.email{
 	width: 50%;
 	border: solid 1px gray;
-}
+}*/
 
-.email:focus{
+/*.email:focus{
 	border-color: blue;
 	border-radius: 5px;
-}
-.centrat{
+}*/
+/*.centrat{
 	text-align: center;
-}
+}*/
 
 
-.targeta{
+/*.targeta{
 	border: 1px solid gray;
 	border-radius: 5px;
 	padding: 15px;
@@ -51,9 +46,9 @@ select{
 	border-radius: 5px;
 	padding: 15px;
 	margin:1em 0;
-}
+}*/
 
-input.button{
+/*input.button{
 	border:none;
 	background-color: #428aff;
 	color: white;
@@ -63,17 +58,17 @@ input.button{
 .button:hover{
 	background-color: #72a8ff;
 	cursor: pointer;
-}
+}*/
 
-.faq ol > li {
+/*.faq ol > li {
 	font-weight: bold;
-}
+}*/
 
 #nombreMatricules{
 	padding: 5px;
 }
 
-button{
+.botoVerd2{
 	border:none;
 	background-color: #00c18e;
 	color: white;
@@ -84,12 +79,12 @@ button{
 	font-size: 1em;
 }
 
-button:hover{
+.botoVerd2:hover{
 	background-color: #008c67;
 	cursor: pointer;
 }
 
-.botoBlau{
+/*.botoBlau{
 	border:none;
 	background-color: #428BCA;
 	color: white;
@@ -106,9 +101,14 @@ button:hover{
 
 .botoBlau:focus{
 	background-color: #428BCA;
-}
+}*/
 
-#preguntaTrasllatExp{
+/*#preguntaTrasllatExp{
+	margin-left:3em;
+	display: none;
+}*/
+
+#preguntesMatriculaAnterior{
 	margin-left:3em;
 	display: none;
 }
@@ -119,19 +119,25 @@ input[type="checkbox"]{
 }
 
 fieldset{
-	margin-top: 2em;
+	margin-top: 0.5em;
 	padding-top: 1em;
-	width: 50%;
+	width: 80%;
 	border-radius: 5px;
 	text-align: left;
 }
 
-#tramits, #docAddicionals{
-	display:none;
-	margin-bottom: 3em;
+#docAddicionals, #tramits{
+	display: none;
+	margin-bottom: 2em;}
+
+#formulariAlumne {
+	margin: 1em;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 20px;
 }
 
-.contenidor1{
+/*.contenidor1{
 	display: grid;
 	grid-template-columns: 50% 50%;
 }
@@ -153,23 +159,23 @@ fieldset{
 
 .quadrant{
 	margin: auto;
-}
+}*/
 
 .far, .fas{
 	margin-right: 0.8em;
 	font-size: 1em;
 }
 
-table{
+/*table{
 	border-collapse: collapse;
-}
+}*/
 
-thead{
+#taulaDocuments thead{
 	color: white;
 	background-color: #7a7a7a;
 }
-td, th{
-	border: 1px solid black;
+
+#taulaDocuments td, th{
 	padding: 5px;
 }
 
@@ -177,7 +183,7 @@ td, th{
 	color: #0000EE;
 }
 
-.fa-question-circle{
+/*.fa-question-circle{
 	margin-left: 0.7em;
 	font-size: 1.2em;
 	color: #999999;
@@ -185,21 +191,21 @@ td, th{
 
 .fa-question-circle:hover{
 	cursor: pointer;
-}
-.contenidorAvis{
+}*/
+/*.contenidorAvis{
 	position: relative;
-}
+}*/
 
-.avis{
+/*.avis{
 	font-size: 0.8em;
 	padding: 5px;
 	background-color: #9304e5;
 	color: #ffffff;
 	border-radius: 5px;
 	text-align: left;
-}
+}*/
 
-#avisAdaptacio{
+/*#avisAdaptacio{
 	position: absolute;
 	bottom: 3em;
 	left: -0.5px;
@@ -210,7 +216,7 @@ td, th{
 	top:3em;
 	left: -0.5em;
 	border: solid 1px black;
-}
+}*/
 
 /*Popup zona d'influència*/
 #popup{
@@ -260,7 +266,7 @@ li .fa-info-circle {
 }
 
 .contenidorTaula{
-	overflow-y: auto;
+	/*overflow-y: auto;*/
 }
 
 /*Popup Atenció al públic*/
@@ -305,6 +311,8 @@ li .fa-info-circle {
 	text-decoration: none;
 }
 
+#taulaDocuments td .fa-info-circle{font-size:1.5em;}
+
 /*Estrucutura per web en Wordpress*/
 label{padding-left: 5px; padding-right:1em;}
 
@@ -322,7 +330,7 @@ button:focus{background-color:#00c18e}
 /*Paràmetres responsive*/
 @media screen and (max-width: 1280px){
 	fieldset{
-		width: 100%;
+		width: 90%;
 	}
 	#caixa{
 		font-size: 0.8em;
@@ -337,5 +345,8 @@ button:focus{background-color:#00c18e}
 
 	.botoBlau{
 		font-size: 0.8em;
-	}	
+	}
+	#preguntesMatriculaAnterior{
+		margin-left: 0;
+	}
 }

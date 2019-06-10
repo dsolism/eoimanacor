@@ -1,20 +1,20 @@
 // Si l'usuari declara ser antic alumne, mostram les preguntes referents a la
 // seva antiguitat: si ja està matriculat al curs acadèmic actual i si s'ha de
 // demanar trasllat d'expedient
-function mostraAnticAlumne(mostrarPreguntes){
-	
 
-	apartat=document.getElementById('preguntaTrasllatExp')
-	
+function mostraMatriculaAnterior(mostrarPreguntes){
+
+	apartat=document.getElementById('preguntesMatriculaAnterior');
 
 	if (mostrarPreguntes) {
-		/*Feim que les dues preguntes siguin visibles i de resposta obligatòria*/
+		// Mostram les preguntes referents a la matrícula anterior
 		apartat.style.display='block';
-		document.getElementsByName('trasllatExp')[0].required=true;
 	} else{
-		/*Amagam les dues preguntes i les posam com a no obligatòries*/
+		// Amagam les peguntes referents a la matrícula anterior
+		// i posam les caselles com a 'no marcades'
 		apartat.style.display='none';
-		document.getElementsByName('trasllatExp')[0].required=false;
+		document.getElementById('matriculat1920').checked=false;
+		document.getElementById('trasllatExp').checked=false;
 	}
 }
 
@@ -96,7 +96,13 @@ const taxes = {
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
 		}
 	},
-	"urlInfo":"https://www.eoimanacor.com/pagament-taxes-proves-lliures-2019/"
+	"quotaComplementaria":{
+		"tramit":"Quota complementària (10€ per idioma)",
+		"document":"Justificant ingrés al compte <strong>ES65 2038 6579 8460 0042 0276</strong> (Bankia) per valor de ",
+		"textBoto":"",
+		"urlInfo": "https://www.eoimanacor.com/quota-complementaria/"
+	},
+	"urlInfo":"https://www.eoimanacor.com/pagament-taxes-matricula-presencial/"
 }
 
 const tramits = {
@@ -105,7 +111,7 @@ const tramits = {
 		"document":"Resguard de matrícula",
 		"textBoto":"Matriculau",
 		"urlTramit":"https://www.informaticacentros.com/centrosnet/matriculacion_preinscritos/inicio.php?tcentro=EOI&centro=PM4",
-		"urlInfo":""		
+		"urlInfo":"https://www.eoimanacor.com/matricula-telematica/"		
 	},
 
 	"adaptacioExamen":{
@@ -152,31 +158,34 @@ const altresDocuments = {
 		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span></span>"
 	},
 	"infPeriodeInin":{
-		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació"
+		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació (no s'acceptarà cap altre document)"
 	},
 	"familiaNombrosa":{
-		"document":"Exempció o bonificació de pagament per família nombrosa: original i fotocòpia del títol família nombrosa"
+		"document":"Exempció o bonificació de pagament per família nombrosa: original i fotocòpia del títol família nombrosa (<a href='https://www.eoimanacor.com/taxes/#fnmp' target='_blank'>Més informació</a>)"
 	},
 	"familiaMonop":{
-		"document": "Exempció o bonificació de pagament per família monoparental: llibre de família o sentència judicial on consti la guàrdia i custòdia"
+		"document": "Exempció o bonificació de pagament per família monoparental: llibre de família o sentència judicial on consti la guàrdia i custòdia (<a href='https://www.eoimanacor.com/taxes/#fnmp' target='_blank'>Més informació</a>)"
+	},
+	"solBeca":{
+		"document": "Justificant de sol·licitud de beca"
 	},
 	"cercDiscapacitat":{
 		"document":"Exempció de pagament per discapacitat: certificació de discapacitat"
 	},
 	"vicTerrorisme":{
-		"document":"Exempció de pagament per víctima de terrorisme: certificat emès pel Ministeri de l’Interior"
+		"document":"Exempció de pagament per víctima de terrorisme: certificat emès pel Ministeri de l’Interior. En el cas del cònjuge i els fills o filles, s’hi ha d’adjuntar el llibre de família (<a href='https://www.eoimanacor.com/taxes/#vicTerrorisme' target='_blank'>Més informació</a>)."
 	},
 	"vicGenere":{
-		"document":"Exempció de pagament per violència de gènere: sentència condemnàtoria, ordre d'allunyament o informe dels serveis socials"
+		"document":"Exempció de pagament per violència de gènere: sentència condemnàtoria, ordre d'allunyament o informe dels serveis socials. En el cas dels fills o filles, s’hi ha d’adjuntar el llibre de família (<a href='https://www.eoimanacor.com/taxes/#vicGenere' target='_blank'>Més informació</a>)"
 	},
 	"joveTutelat":{
-		"document":"Exempció de pagament per ser jove tutelat o en acolliment familiar: certificat expedit per l'IMAS"
+		"document":"Exempció de pagament per ser jove tutelat o en acolliment familiar: certificat expedit per l'IMAS (<a href='https://www.eoimanacor.com/taxes/#vulnerabilitatEconomica' target='_blank'>Més informació</a>)"
 	},
 	"privLlibertat":{
-		"document":"Exempció de pagament per privació de llibertat: resolució judicial"
+		"document":"Exempció de pagament per privació de llibertat: resolució judicial (<a href='https://www.eoimanacor.com/taxes/#vulnerabilitatEconomica' target='_blank'>Més informació</a>)"
 	},
 	"vulnerabilitatEconomica":{
-		"document":"Exempció de pagament per vulnerabilitat econòmica: certificat expedit per la Direcció General de Planificació i Serveis Socials o l'IMAS"
+		"document":"Exempció de pagament per vulnerabilitat econòmica: certificat expedit per la Direcció General de Planificació i Serveis Socials o l'IMAS (<a href='https://www.eoimanacor.com/taxes/#vulnerabilitatEconomica' target='_blank'>Més informació</a>)"
 	},
 	"fotos":{
 		"document":"Dues fotos grandària carnet"
@@ -188,7 +197,7 @@ const nivell = ['primer', 'segon', 'tercer', 'quart', 'cinquè', 'sisè'];
 // Creació plantilla objecte alumne
 class alumneSchema{
 	
-	constructor(condicioAlumne, nombreMatricules, situacioTaxes, menordEdat, trasllat){
+	constructor(condicioAlumne, nombreMatricules, situacioTaxes, menordEdat, trasllat, matriculat1920){
 		
 		if (condicioAlumne){
 			this.condicioAlumne='anticAlumne';
@@ -200,12 +209,13 @@ class alumneSchema{
 		this.situacioTaxes=situacioTaxes;
 		this.menordEdat=menordEdat;
 		this.trasllat=trasllat;
+		this.matriculat1920 = matriculat1920;
 	}
 
 
 	afegeixTramit(paramTramit, unitats=0){
 		
-		var boto = '<a href="'+paramTramit.urlTramit+'" target="_blank"><button>'+paramTramit.textBoto+'</button></a>';
+		var boto = '<a href="'+paramTramit.urlTramit+'" target="_blank"><button class="botoVerd2">'+paramTramit.textBoto+'</button></a>';
 		var info = '<a href="'+paramTramit.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
 		var textTramit = paramTramit.tramit;
 
@@ -213,14 +223,14 @@ class alumneSchema{
 			textTramit += ' ' + nivell[unitats] + ' idioma';
 		}
 
-		var linia ='<tr><td>'+textTramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var linia ='<tr><td>'+textTramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td class=\'centrat\'>'+info+'</td></tr>';
 
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 	}
 
 	afegeixPagament(taxa, situacio, condicio, unitats=0){
 
-		var boto = '<a href="'+taxa[situacio][condicio]+'" target="_blank"><button>'+taxa[situacio].textBoto+'</button></a>';
+		var boto = '<a href="'+taxa[situacio][condicio]+'" target="_blank"><button class="botoVerd2">'+taxa[situacio].textBoto+'</button></a>';
 		var info = '<a href="'+taxes.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
 		var textTramit = taxa.tramit;
 
@@ -228,7 +238,18 @@ class alumneSchema{
 			textTramit += ' ' + nivell[unitats] + ' idioma';
 		}
 
-		var linia ='<tr><td>'+textTramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var linia ='<tr><td>'+textTramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td class=\'centrat\'>'+info+'</td></tr>';
+		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
+
+	}
+
+	afegeixQuotaComplementaria(unitats){
+
+		var importaPagar= 10 * unitats;
+		var justificant = taxes.quotaComplementaria.document +'<strong>'+ importaPagar + ' euros</strong>';
+		var info = '<a href="'+taxes.quotaComplementaria.urlInfo+'" target="_blank"><i class="fas fa-info-circle"></i></a>';
+		var linia = '<tr><td>'+ taxes.quotaComplementaria.tramit + '</td><td colspan="2">' + justificant + '</td><td class=\'centrat\'>'+ info +'</td></tr>';
+
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 
 	}
@@ -263,13 +284,14 @@ function Calcula(){
 
 	// Recollim els valors del formulari
 	var condicioAlumne=document.getElementById('anticAlumne').checked,
-		trasllat=document.getElementById('trasllatSi').checked,
+		trasllat=document.getElementById('trasllatExp').checked,
 		nombreMatricules=document.getElementById('nombreMatricules').value,
 		situacioTaxes=document.getElementById('situacio').value,
-		menordEdat=document.getElementById('majordEdatNo').checked;
+		menordEdat=document.getElementById('majordEdatNo').checked,
+		matriculat1920 = document.getElementById('matriculat1920').checked;
 
 	// Cream l'objecte alumne
-	Alumne = new alumneSchema(condicioAlumne, nombreMatricules, situacioTaxes, menordEdat, trasllat);
+	Alumne = new alumneSchema(condicioAlumne, nombreMatricules, situacioTaxes, menordEdat, trasllat, matriculat1920);
 
 	// Afegim tantex matrícules telemàtiques com nombre d'idiomes en què es matricula l'alumne
 	for (i=0;i<Alumne.nombreMatricules;i++){
@@ -284,8 +306,9 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.autoritzacioMenordEdat);
 	}
 
-	// Si és nou alumne, demanam 2 fotos
+	// Si és nou alumne, demanam 2 fotos i la fotocòpia del DNI
 	if (Alumne.condicioAlumne=='nouAlumne'){
+		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.fotos);
 	}
 
@@ -302,6 +325,10 @@ function Calcula(){
 			Alumne.afegeixPagament(taxes.oberturaExpedient, Alumne.situacioTaxes, Alumne.condicioAlumne);
 		}
 
+		// Serveis generals
+		if (!Alumne.matriculat1920){
+			Alumne.afegeixPagament(taxes.serveisGenerals, Alumne.situacioTaxes, Alumne.condicioAlumne);
+		}
 
 		// Drets d'examen: un pagament per cada idioma i nivell
 		for(i=0;i<Alumne.nombreMatricules;i++){
@@ -328,6 +355,9 @@ function Calcula(){
 			case "fmpe":
 				Alumne.afegeixDocument(altresDocuments.familiaMonop);
 				break;
+			case "beca":
+				Alumne.afegeixDocument(altresDocuments.solBeca);
+				break;
 			case "disc":
 				Alumne.afegeixDocument(altresDocuments.cercDiscapacitat);
 				break;
@@ -349,13 +379,16 @@ function Calcula(){
 		}
 	}
 
-	// Feim l'apartat tràmits visible
-	document.getElementById('tramits').style.display='initial';
+	// Quota complementària, 10e per idioma, obligatòria per tothom
+	Alumne.afegeixQuotaComplementaria(Alumne.nombreMatricules);
 
-	// Si l'alumne té exempció de pagament de taxes, haurà d'aportar documentació addicional
+	// Feim l'apartat tràmits visible
+	document.getElementById('tramits').style.display='block';
+
+	// Si l'alumne té exempció de pagament de taxes o és nou alumne, haurà d'aportar documentació addicional
 	// Per això feim aquest apartat visible
-	if (Alumne.situacioTaxes!='ord'){
-		document.getElementById('docAddicionals').style.display='initial';
+	if ((Alumne.situacioTaxes!='ord')||(Alumne.condicioAlumne=='nouAlumne')){
+		document.getElementById('docAddicionals').style.display='block';
 	}
 }
 
@@ -376,21 +409,21 @@ function Neteja(netejaFormulari=true){
 	// Esborram la pregunta 'Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?'
 	// si així ho rembem per paràmetre
 	if (netejaFormulari){
-		document.getElementById('preguntesAnticAlumne').style.display='none';
+		document.getElementById('preguntesMatriculaAnterior').style.display='none';
 	}
 }
 
-function mostra(lloc, numero){
+/*function mostra(lloc, numero){
 	
 	document.getElementById(lloc).classList.toggle("ocult");
 	document.getElementsByClassName('fa-question-circle')[numero].classList.toggle("destacat");
-}
+}*/
 
 // Funció que regula l'avís que sortirà quan l'usuari vulgui saber els documents que ha de lliurar
 function avisData(){
 
-	var inici = new Date(2019, 1, 19, 9,0,0),
-		final = new Date(2019, 2, 11, 22, 0, 0),
+	var inici = new Date(2019, 6, 1, 9,0,0),
+		final = new Date(2019, 6, 15, 22, 0, 0),
 		avui = new Date(),
 		avis;
 
