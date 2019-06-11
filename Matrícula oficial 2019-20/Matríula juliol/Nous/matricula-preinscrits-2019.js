@@ -317,69 +317,10 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.trasllatExpedient);
 	}
 
-	// Taxes (només si és ordinari o família nombrosa general)
-	if ((Alumne.situacioTaxes=='ord')||(Alumne.situacioTaxes=='fng')||(Alumne.situacioTaxes=='fmpg')){
+	// Taxes o document d'exempció
+	CalculaTaxes(Alumne);
 
-		// Obertura d'expedient
-		if (Alumne.condicioAlumne=='nouAlumne'){
-			Alumne.afegeixPagament(taxes.oberturaExpedient, Alumne.situacioTaxes, Alumne.condicioAlumne);
-		}
-
-		// Serveis generals
-		if (!Alumne.matriculat1920){
-			Alumne.afegeixPagament(taxes.serveisGenerals, Alumne.situacioTaxes, Alumne.condicioAlumne);
-		}
-
-		// Drets d'examen: un pagament per cada idioma i nivell
-		for(i=0;i<Alumne.nombreMatricules;i++){
-			Alumne.afegeixPagament(taxes.Matrícula, Alumne.situacioTaxes, Alumne.condicioAlumne, i);
-		}
-
-		// Si és família nombrosa general, sol·licitam també el títol corresponent
-		if (Alumne.situacioTaxes=='fng'){
-			Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
-		} else{
-			if (Alumne.situacioTaxes=='fmpg'){
-				Alumne.afegeixDocument(altresDocuments.familiaMonop);
-			}
-		}
-	}else{ // L'alumne té exempció o bonificació
-
-		switch (Alumne.situacioTaxes){
-			case "atur":
-				Alumne.afegeixDocument(altresDocuments.infPeriodeInin);
-				break;			
-			case "fne":
-				Alumne.afegeixDocument(altresDocuments.familiaNombrosa);
-				break;
-			case "fmpe":
-				Alumne.afegeixDocument(altresDocuments.familiaMonop);
-				break;
-			case "beca":
-				Alumne.afegeixDocument(altresDocuments.solBeca);
-				break;
-			case "disc":
-				Alumne.afegeixDocument(altresDocuments.cercDiscapacitat);
-				break;
-			case "terr":
-				Alumne.afegeixDocument(altresDocuments.vicTerrorisme);
-				break;
-			case "gen":
-				Alumne.afegeixDocument(altresDocuments.vicGenere);
-				break;
-			case "vulec":
-				Alumne.afegeixDocument(altresDocuments.vulnerabilitatEconomica);
-				break;
-			case "tute":
-				Alumne.afegeixDocument(altresDocuments.joveTutelat);
-				break;
-			case "llib":
-				Alumne.afegeixDocument(altresDocuments.privLlibertat);
-				break;
-		}
-	}
-
-	// Quota complementària, 10e per idioma, obligatòria per tothom
+	// Quota complementària, 10€ per idioma, obligatòria per tothom
 	Alumne.afegeixQuotaComplementaria(Alumne.nombreMatricules);
 
 	// Feim l'apartat tràmits visible
@@ -389,6 +330,72 @@ function Calcula(){
 	// Per això feim aquest apartat visible
 	if ((Alumne.situacioTaxes!='ord')||(Alumne.condicioAlumne=='nouAlumne')){
 		document.getElementById('docAddicionals').style.display='block';
+	}
+}
+
+function CalculaTaxes(paramAlumne){
+
+	// Taxes només si és ordinari, família nombrosa general o família monoparental general
+	if ((paramAlumne.situacioTaxes=='ord')||(paramAlumne.situacioTaxes=='fng')||(paramAlumne.situacioTaxes=='fmpg')){
+
+		// Obertura d'expedient
+		if (paramAlumne.condicioAlumne=='nouAlumne'){
+			paramAlumne.afegeixPagament(taxes.oberturaExpedient, paramAlumne.situacioTaxes, paramAlumne.condicioAlumne);
+		}
+
+		// Serveis generals
+		if (!paramAlumne.matriculat1920){
+			paramAlumne.afegeixPagament(taxes.serveisGenerals, paramAlumne.situacioTaxes, paramAlumne.condicioAlumne);
+		}
+
+		// Drets d'examen: un pagament per cada idioma i nivell
+		for(i=0;i<paramAlumne.nombreMatricules;i++){
+			paramAlumne.afegeixPagament(taxes.Matrícula, paramAlumne.situacioTaxes, paramAlumne.condicioAlumne, i);
+		}
+
+		// Si és família nombrosa general, sol·licitam també el títol corresponent
+		if (paramAlumne.situacioTaxes=='fng'){
+			paramAlumne.afegeixDocument(altresDocuments.familiaNombrosa);
+		} else{
+			if (paramAlumne.situacioTaxes=='fmpg'){
+				paramAlumne.afegeixDocument(altresDocuments.familiaMonop);
+			}
+		}
+
+	}else{ // L'alumne té exempció o bonificació
+
+		switch (paramAlumne.situacioTaxes){
+			case "atur":
+				paramAlumne.afegeixDocument(altresDocuments.infPeriodeInin);
+				break;			
+			case "fne":
+				paramAlumne.afegeixDocument(altresDocuments.familiaNombrosa);
+				break;
+			case "fmpe":
+				paramAlumne.afegeixDocument(altresDocuments.familiaMonop);
+				break;
+			case "beca":
+				paramAlumne.afegeixDocument(altresDocuments.solBeca);
+				break;
+			case "disc":
+				paramAlumne.afegeixDocument(altresDocuments.cercDiscapacitat);
+				break;
+			case "terr":
+				Alumne.afegeixDocument(altresDocuments.vicTerrorisme);
+				break;
+			case "gen":
+				paramAlumne.afegeixDocument(altresDocuments.vicGenere);
+				break;
+			case "vulec":
+				paramAlumne.afegeixDocument(altresDocuments.vulnerabilitatEconomica);
+				break;
+			case "tute":
+				paramAlumne.afegeixDocument(altresDocuments.joveTutelat);
+				break;
+			case "llib":
+				paramAlumne.afegeixDocument(altresDocuments.privLlibertat);
+				break;
+		}
 	}
 }
 
@@ -433,4 +440,12 @@ function avisData(){
 		avis='Recordau que fins que no hàgiu presentat els documents a la Secretaria del centre no es considerarà formalitzada la matrícula.'
 	}
 	alert(avis);
+}
+
+function mostraPopUpAA(){
+	var x=document.getElementById('popUpAA');
+	var z=document.getElementById('triggerPopUpAA');
+	z.classList.toggle('fletxa');
+	z.classList.toggle('colorPopUp');
+	x.classList.toggle('mostraPopUpAA');
 }

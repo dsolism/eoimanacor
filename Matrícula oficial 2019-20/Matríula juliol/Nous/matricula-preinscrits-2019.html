@@ -3,10 +3,17 @@
 <head>
 	<title>Matrícula admesos 2019/20</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="plliures2019.css">
+	<link rel="stylesheet" type="text/css" href="matricula-preinscrits-2019.css">
 	<link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/qvwz36otw31khtr/style.css?dl=0">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<script src="Formulari.js"></script>
+	<script src="matricula-preinscrits-2019.js"></script>
+	<style>
+		body{
+			max-width: 800px;
+			margin: auto;
+			font-family: lato;
+		}
+	</style>
 </head>
 <body>
 	<h1>Matrícula admesos 2019/20</h1>
@@ -18,7 +25,12 @@
 
 				<!-- Pregunta sobre antiguitat -->
 				<div>
-					<p>És la primera matrícula que formalitzes una matrícula a una escola oficial d'idiomes com alumne <strong>oficial</strong> o <strong>lliure</strong>?</p>
+					<p>És la primera matrícula que formalitzes una matrícula a una escola oficial d'idiomes com alumne <strong>oficial</strong> o <strong>lliure</strong>?<span id="triggerPopUpAA" onclick="mostraPopUpAA()"><i class="fas fa-question-circle"></i></span></p>
+					<div class="contenidorPopUp">
+						<div id="popUpAA">
+							La matrícula a <em>That's English</em> o EOIES no atorga la condició d'antic alumne
+						</div>
+					</div>
 					<div>
 						<input type="radio" id="nouAlumne" name="antiguitat" value="si" onclick="mostraMatriculaAnterior(false)" autocomplete="off" required>
 						<label for="nouAlumne">Sí</label>
@@ -93,7 +105,7 @@
 
 		<!-- Tràmits -->
 		<div id="tramits">
-			<h2>Tràmits 2</h2>
+			<h2>Tràmits</h2>
 			<div class="contenidorTaula">
 				<table id="taulaDocuments" class="taulaEOI">
 					<thead>

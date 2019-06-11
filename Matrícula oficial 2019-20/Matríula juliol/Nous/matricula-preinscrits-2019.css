@@ -1,0 +1,153 @@
+
+input{
+	margin-bottom: 1em;
+	border-radius: 5px;
+	font-size: 1em;
+	padding: 10px;
+}
+
+select{
+	font-size: 1em;
+	padding: 2px;
+}
+
+#nombreMatricules{
+	padding: 5px;
+}
+
+.botoVerd2{
+	border:none;
+	background-color: #00c18e;
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: 5px;
+	margin-right: 1.5em;
+	font-size: 1em;
+}
+
+.botoVerd2:hover{
+	background-color: #008c67;
+	cursor: pointer;
+}
+
+
+#triggerPopUpAA .fa-question-circle{
+	margin-left:0.5em;
+	font-size: 1.1em; 
+	position: relative;
+}
+.fletxa .fa-question-circle::after{
+	content:""; 
+	border: 10px; 
+	border-style:solid;
+	border-color: transparent transparent #9bc1ff transparent;
+	position: absolute;
+	top: 10px;
+	left:-2px;
+}
+
+.contenidorPopUp {position: relative;}
+
+#popUpAA{
+	position:absolute;
+	background-color: #9bc1ff;
+	border-radius: 5px;
+	padding: 10px;
+	color:white;top:-5px;
+	top: -5px;
+	z-index: 1;
+	visibility: hidden;
+}
+
+#popUpAA.mostraPopUpAA{
+	visibility: visible;
+	animation-name:fadeIn;
+	animation-duration:1s;
+}
+
+.colorPopUp {color:#9bc1ff;}
+
+#preguntesMatriculaAnterior{
+	margin-left:3em;
+	display: none;
+}
+
+input[type="checkbox"]{
+	transform: scale(1.2);
+	margin-top: 10px;
+}
+
+fieldset{
+	margin-top: 0.5em;
+	padding-top: 1em;
+	width: 80%;
+	border-radius: 5px;
+	text-align: left;
+}
+
+#docAddicionals, #tramits{
+	display: none;
+	margin-bottom: 2em;}
+
+#formulariAlumne {
+	margin: 1em;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.far, .fas{
+	margin-right: 0.8em;
+	font-size: 1em;
+}
+
+#taulaDocuments thead{
+	color: white;
+	background-color: #7a7a7a;
+}
+
+#taulaDocuments td, th{
+	padding: 5px;
+}
+
+.fa-info-circle{
+	color: #0000EE;
+}
+
+li .fa-info-circle {
+	margin-left: 0.7em;
+}
+
+.destacat{
+	color:#9304e5;
+}
+
+#taulaDocuments td .fa-info-circle{font-size:1.5em;}
+
+/*Estrucutura per web en Wordpress*/
+label{padding-left: 5px; padding-right:1em;}
+
+input[type="number"]{width:3em;}
+
+select[name="situacio"]{width:28em;}
+button{font-size:16px;}
+
+#columnaTramit{width:10em;}
+
+button:focus{background-color:#00c18e}
+
+.contenidorTaula{overflow-x:auto;}
+
+/*Paràmetres responsive*/
+@media screen and (max-width: 1280px){
+	fieldset{
+		width: 90%;
+	}
+	.botoBlau{
+		font-size: 0.8em;
+	}
+	#preguntesMatriculaAnterior{
+		margin-left: 0;
+	}
+}
