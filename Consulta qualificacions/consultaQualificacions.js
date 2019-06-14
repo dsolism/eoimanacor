@@ -7,7 +7,7 @@ const datesPublicacions = [
 	},
 	{
 		'idioma': 'Anglès',
-		'curs':'',
+		'curs':'Bàsic A2',
 		'publicacio': new Date(2019, 5, 12, 19, 0)
 	},
 	{
@@ -67,7 +67,7 @@ const datesPublicacions = [
 	},
 	{
 		'idioma': 'Alemany',
-		'curs':'Avançat 2',
+		'curs':'Avançat 2/B2',
 		'publicacio': new Date(2019, 5, 12, 19, 0)
 	},
 	{
