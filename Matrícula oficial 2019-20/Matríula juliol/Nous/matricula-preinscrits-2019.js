@@ -158,7 +158,7 @@ const altresDocuments = {
 		"popup":"<span class='contenidorAvis' onclick=\"mostra('popup',2)\"><i class='fas fa-question-circle'></i><span id='popup' class='avis ocult'>Es justifica amb un dels documents següents:<ul><li>Certificat d'empadronament</li><li>Contracte laboral</li><li>Certificat de matrícula</li></ul></span></span>"
 	},
 	"infPeriodeInin":{
-		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació (no s'acceptarà cap altre document)"
+		"document":"Exempció de pagament per estar en atur: Informe de periode ininterromput inscrit en situació de desocupació (<strong>no s'acceptarà cap altre document</strong>)"
 	},
 	"familiaNombrosa":{
 		"document":"Exempció o bonificació de pagament per família nombrosa: original i fotocòpia del títol família nombrosa (<a href='https://www.eoimanacor.com/taxes/#fnmp' target='_blank'>Més informació</a>)"
@@ -167,7 +167,7 @@ const altresDocuments = {
 		"document": "Exempció o bonificació de pagament per família monoparental: llibre de família o sentència judicial on consti la guàrdia i custòdia (<a href='https://www.eoimanacor.com/taxes/#fnmp' target='_blank'>Més informació</a>)"
 	},
 	"solBeca":{
-		"document": "Justificant de sol·licitud de beca"
+		"document": "Justificant de sol·licitud de beca (el termini per sol·licitar beca a la web del Ministeri d'Educació comença al mes d'agost)"
 	},
 	"cercDiscapacitat":{
 		"document":"Exempció de pagament per discapacitat: certificació de discapacitat"
@@ -189,6 +189,9 @@ const altresDocuments = {
 	},
 	"fotos":{
 		"document":"Dues fotos grandària carnet"
+	},
+	"carnetEstudiant":{
+		"document":"Carnet d'estudiant"
 	}
 }
 
@@ -270,7 +273,7 @@ class alumneSchema{
 		
 		linia+='</li>'
 
-		document.getElementById('docAddicionals').lastElementChild.insertAdjacentHTML('beforeend', linia);
+		document.querySelector('#docAddicionals ul').insertAdjacentHTML('beforeend', linia);
 	}
 }
 
@@ -306,10 +309,15 @@ function Calcula(){
 		Alumne.afegeixTramit(tramits.autoritzacioMenordEdat);
 	}
 
-	// Si és nou alumne, demanam 2 fotos i la fotocòpia del DNI
-	if (Alumne.condicioAlumne=='nouAlumne'){
+	// Si és nou alumne, demanam 2 fotos i la fotocòpia del DNI o s'ha de taslladar expedient
+	// Si és antic, el carnet d'estudiant
+	if ((Alumne.condicioAlumne=='nouAlumne')||((Alumne.trasllat)&&(!Alumne.matriculat1920))){
 		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.fotos);
+	}else{
+		if (Alumne.matriculat1920){
+			Alumne.afegeixDocument(altresDocuments.carnetEstudiant);
+		}
 	}
 
 	// Sol·licitud de trasllat
@@ -326,9 +334,9 @@ function Calcula(){
 	// Feim l'apartat tràmits visible
 	document.getElementById('tramits').style.display='block';
 
-	// Si l'alumne té exempció de pagament de taxes o és nou alumne, haurà d'aportar documentació addicional
-	// Per això feim aquest apartat visible
-	if ((Alumne.situacioTaxes!='ord')||(Alumne.condicioAlumne=='nouAlumne')){
+	// Mostram l'apartat documents addicionals si n'hi ha per mostrar
+	var ulDocAddicionals=document.querySelector('#docAddicionals ul');
+	if (ulDocAddicionals.innerHTML!=''){
 		document.getElementById('docAddicionals').style.display='block';
 	}
 }
@@ -400,31 +408,27 @@ function CalculaTaxes(paramAlumne){
 }
 
 // Restauració del formulari
-function Neteja(netejaFormulari=true){
+function Neteja(esborraPreguntesMatriculaAnterior=true){
 
-	// Buidam els resultats i els amagam
-	var taulaDocuments=document.getElementById('taulaDocuments'),
-		docAddicionals=document.getElementById('docAddicionals')
+	// Esborram els resultats i els amagam
+	var taulaDocuments=document.querySelector('#taulaDocuments tbody'),
+		ulDocAddicionals=document.querySelector('#docAddicionals ul'),
+		docAddicionals=document.getElementById('docAddicionals'),
 		tramitsDiv=document.getElementById('tramits');
 	
-	taulaDocuments.lastElementChild.innerHTML='';
-	docAddicionals.lastElementChild.innerHTML='';
+	taulaDocuments.innerHTML='';
+	ulDocAddicionals.innerHTML='';
 
 	tramitsDiv.style.display='none';
 	docAddicionals.style.display='none';
 
 	// Esborram la pregunta 'Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?'
 	// si així ho rembem per paràmetre
-	if (netejaFormulari){
+	if (esborraPreguntesMatriculaAnterior){
 		document.getElementById('preguntesMatriculaAnterior').style.display='none';
 	}
 }
 
-/*function mostra(lloc, numero){
-	
-	document.getElementById(lloc).classList.toggle("ocult");
-	document.getElementsByClassName('fa-question-circle')[numero].classList.toggle("destacat");
-}*/
 
 // Funció que regula l'avís que sortirà quan l'usuari vulgui saber els documents que ha de lliurar
 function avisData(){
