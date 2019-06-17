@@ -312,7 +312,6 @@ function Calcula(){
 	// Si és nou alumne, demanam 2 fotos i la fotocòpia del DNI o s'ha de taslladar expedient
 	// Si és antic, el carnet d'estudiant
 	if ((Alumne.condicioAlumne=='nouAlumne')||((Alumne.trasllat)&&(!Alumne.matriculat1920))){
-		Alumne.afegeixDocument(altresDocuments.fotocopiaDNI);
 		Alumne.afegeixDocument(altresDocuments.fotos);
 	}else{
 		if (Alumne.matriculat1920){
