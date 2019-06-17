@@ -11,6 +11,8 @@ select{
 	padding: 2px;
 }
 
+p {margin-bottom: 16px;}
+
 #nombreMatricules{
 	padding: 5px;
 }
