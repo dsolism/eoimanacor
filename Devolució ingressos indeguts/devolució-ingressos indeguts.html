@@ -4,7 +4,6 @@
 	<title>Devolució d'ingressos indeguts</title>
 	<link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/qvwz36otw31khtr/style.css?dl=0">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<script type="text/javascript" src="procesAdmissio.js"></script>
 	<meta charset="utf-8">
 	<meta name="author" content="EOI Manacor">
 	<meta name="keywords" content="matrícula, idiomes, manacor, B1, B2, C1, C2">
@@ -12,18 +11,53 @@
 	<style type="text/css">
 		body{
 			max-width: 800px;
+			padding: 0px 20px 20px 20px;
 			margin: auto;
 			font-family: lato;
-			font-size: 18px;
-			font-weight: 300px;
 		}
+		@media screen and (max-width:1280px){
+			body{
+				max-width: 620px;
+			}
+		}
+		@media screen and (max-width:960px){
+			body{
+				font-size: 0.9em;
+				padding: 0px 0px 20px 0px;
+			}
+		}
+		@media screen and (max-width:800px){
+			body{
+				font-size: 1em;
+				padding: 0px;
+			}			
+		}
+		#dii-menu{
+			width: 400px;
+			margin: auto;
+			padding: 10px;
+			background-color: #e6e6e6;
+			border-radius: 5px;
+		}
+		#dii-menu a{
+			text-decoration: none;
+		}		
+		.dii-apartat section{
+			margin-left: 5%;
+		}	
 	</style>
 </head>
 <body>
 	<h1>Sol·licitud de devolució d'ingressos indeguts</h1>
 	<div id="contenidorEOI">
-		<article>
-			<h2>De taxes abonades a l'Agència Tributària</h2>
+		<section id="dii-menu">
+			<ul>
+				<li><a href="#taxes-AT">De taxes abonades a l'Agència Tributària</a></li>
+				<li><a href="#compte-centre">D'ingressos abonats al compte del centre</a></li>
+			</ul>
+		</section>
+		<article class="dii-apartat">
+			<h2 id="taxes-AT">De taxes abonades a l'Agència Tributària</h2>
 			<section>
 				<h3>Causes de devolució</h3>
 				<ul>
@@ -38,6 +72,7 @@
 				<h3>Causes de NO devolució</h3>
 				<ul>
 					<li>Sol·licitud de baixa de l'alumne, qualsevol que sigui el motiu al·legat</li>
+					<li>Motius familiars, personals, laborals, d’incompatibilitat horària, etc.</li>
 				</ul>
 			</section>
 			<section>
@@ -51,14 +86,41 @@
 					<li><a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/06/19170451/declaraci%C3%B3-reponsable-veracitat.pdf" target="_blank_">Declaració responsable de veracitat de les dades bancàries</a>, emplenada i signada per l'interessat sense rectificacions</li>
 					<li>Justificant de l'ingrés 046 a favor de la CAIB, còpia acarada si el pagament s'ha fet de forma presencial i còpia simple si s'ha fet telemàticament</li>
 					<li>Fotocòpia del DNI</li>
-					<li>Si escau, altres documents(acarats) que demostrin el dret de la devoució: fotocòpia del llibred de família nombrosa, comunicat de concessió d'una beca, certificatd de discapacitat, etc.</li>
+					<li>Si escau, altres documents (acarats) que demostrin el dret de la devoució: fotocòpia del llibred de família nombrosa, comunicat de concessió d'una beca, certificatd de discapacitat, etc.</li>
 					<li>En cas d'alumnes menors d'edat, si la sol·licitud la fa el pare o la mare, cal adjundar també la fotocòpia del seu DNI i les fotocòpies acarades del Llibre de Família de les pàgines on surt ell/ella i el seu fill/filla</li>
 				</ul>
 				<p>El nom del sol·licitant ha de coincidir amb el del titular de la declaració reponsable de veracitat de les dades bancàries, imprès de matrícula, model 046 i fotocòpia del DNI/NIE.</p>
 			</section>
 		</article>
-		<article>
-			<h2>D'ingressos abonats al compte del centre</h2>
+		<article class="dii-apartat">
+			<h2 id="compte-centre">D'ingressos abonats al compte del centre</h2>
+			<section>
+				<h3>Causes de devolució</h3>
+				<ul>
+					<li>Haver realitzat un ingrés per una quantitat superior a la requerida</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Causes de NO devolució</h3>
+				<ul>
+					<li>Sol·licitud de baixa de l'alumne, qualsevol que sigui el motiu al·legat</li>
+				</ul>				
+			</section>
+			<section>
+				<h3>Òrgan que ho resol</h3>
+				<ul>
+					<li>Direcció de l'Escola Oficial d'Idiomes de Manacor</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Documentació a presentar</h3>
+				<ul>
+					<li><a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/07/15093012/sol%C2%B7licitud-devolucions-compte-centre.pdf" target="_blank">Instància de sol·licitud original</a>, signat per l'interessat/ada</li>
+					<li><a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/06/19170451/declaraci%C3%B3-reponsable-veracitat.pdf" target="_blank_">Declaració responsable de veracitat de les dades bancàries</a>, emplenada i signada per l'interessat sense rectificacions</li>
+					<li>Justificant de l'ingrés bancari</li>
+					<li>Fotocòpia del DNI</li>				
+				</ul>
+			</section>
 		</article>
 	</div>
 </body>
