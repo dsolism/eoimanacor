@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Matrícula admesos 2019/20</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/lcgfa9s86yjjkqt/matricula-preinscrits-2019.css?dl=0">
+	<link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/qvwz36otw31khtr/style.css?dl=0">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<script src="matricula-vacants-setembre-2019.js"></script>
+	<style>
+		body{
+			max-width: 800px;
+			margin: auto;
+			font-family: lato;
+		}
+	</style>
+</head>
+<body>
+	<h1>Matrícula vacants 2019/20</h1>
+	<div id="contenidorEOI">
+		<h2>Setembre 2019</h2>
+		<div>
+			<!-- Formulari per determinar documents de matrícula -->
+			<form method="GET" action="javascript:Calcula()" id="formulariAlumne">
+
+				<!-- Pregunta sobre antiguitat -->
+				<div>
+					<p>És la primera matrícula que formalitzes una matrícula a una escola oficial d'idiomes com alumne <strong>oficial</strong> o <strong>lliure</strong>?<span id="triggerPopUpAA" onclick="mostraPopUpAA()"><i class="fas fa-question-circle"></i></span></p>
+					<div class="contenidorPopUp">
+						<div id="popUpAA">
+							La matrícula a <em>That's English</em> o EOIES no atorga la condició d'antic alumne
+						</div>
+					</div>
+					<div>
+						<input type="radio" id="nouAlumne" name="antiguitat" value="si" onclick="mostraMatriculaAnterior(false)" autocomplete="off" required>
+						<label for="nouAlumne">Sí</label>
+
+						<input type="radio" id="anticAlumne" name="antiguitat" value="no" onclick="mostraMatriculaAnterior(true)" autocomplete="off">
+						<label for="anticAlumne">No</label>
+					</div>
+				</div>
+
+				<!-- Aquestes preguntes només es mostraran si l'usuari declara matrícules prèvies -->
+				<div id="preguntesMatriculaAnterior">
+					<fieldset>
+						<legend>Marcau si pertoca:</legend>
+						<div>
+							<input type="checkbox" name="matriculat1920" id="matriculat1920" autocomplete="off">
+							<label for="matriculat1920">Ja he formalitzat la matrícula per al curs 2019/20 a un altre idioma</label>
+						</div>
+						<div>
+							<input type="checkbox" name="trasllatExp" id="trasllatExp" autocomplete="off">
+							<label for="matriculat1920">La meva darrera matrícula NO va ser a l'EOI Manacor</label>
+						</div>
+					</fieldset>
+				</div>
+
+				<!-- Majoria d'edat -->
+				<p>Tens 18 anys o més?</p>
+				<div>
+					<input type="radio" id="majordEdatSi" name="majordEdat" value="si" autocomplete="off" required>
+					<label for="majordEdatSi">Sí</label>
+					<input type="radio" id="majordEdatNo" name="majordEdat" value="no" autocomplete="off">
+					<label for="majordEdatNo">No</label>
+				</div>
+
+				<!-- Nombre de matrícules -->
+				<div>
+					<label for="nombreMatricules">A quants d'idiomes et matricules?</label>
+					<input type="number" name="nombreMatricules" id="nombreMatricules" min="1" max="3" value="1" autocomplete="off">
+				</div>
+
+
+				<!-- Situació a efectes de pagament de taxes -->
+				<div>
+					<!-- En posar el desplegable com a 'required', el formulari validarà que l'usuari ha triat un valor diferent de blanc (value) -->
+					<select id="situacio" name="situacio" required autocomplete="off">
+						<option value="">— Especificau una situació —</option>
+						<option value="fng">Som membre de família nombrosa GENERAL</option>
+						<option value="fne">Som membre de família nombrosa ESPECIAL</option>
+						<option value="fmpg">Som membre de família monoparental GENERAL</option>
+						<option value="fmpe">Som membre de família monoparental ESPECIAL</option>
+						<option value="beca">He sol·licitat beca</option>
+						<option value="atur">Estic en situació d'atur</option>
+						<option value="terr">Som víctima o familiar de víctima d'actes terroristes</option>
+						<option value="disc">Tenc una discapacitat igual al 33 % o superior</option>
+						<option value="gen">Som víctima o fill de víctima de violència de gènere</option>
+						<option value="vulec">Estic en situació de vulnerabilitat econòmica especial</option>
+						<option value="tute">Som un jove tutelat, extutelat en acolliment familiar</option>
+						<option value="llib">Estic subjecte a mesures privatives de llibertat</option>
+						<option value="ord">Cap de les anteriors (Ordinari)</option>
+					</select>
+				</div>
+
+				<!-- Botons -->
+				<div>
+					<br>
+					<button class="botoVerd2" type="submit">Accediu</button>
+					<button class="botoVerd2" type="reset" onclick="Neteja()">Neteja</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Resultats formulari -->
+
+		<!-- Tràmits -->
+		<div id="tramits">
+			<h2>Tràmits</h2>
+			<div class="contenidorTaula">
+				<table id="taulaDocuments" class="taulaEOI">
+					<thead>
+						<tr>
+							<th>Tràmit</th>
+							<th>Document a presentar</th>
+							<th>Realitzau el tràmit</th>
+							<th>Més informació</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>			
+			</div>
+		</div>
+
+		<!-- Documents addicionals -->
+		<div id="docAddicionals">
+			<h2>Documents addicionals</h2>
+			<p>A més dels documents anteriors, també heu de presentar els documents següents:</p>
+			<ul></ul>
+		</div>
+	</div>
+</body>
+</html>
