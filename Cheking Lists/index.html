@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cheking list proves lliures 2020</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="David Solís">
+	<meta name="twitter:image" content="https://blog.eurail.com/wp-content/uploads/2017/12/Travel-activities-for-rainy-days-Its-raining.jpg">
+	<link rel="stylesheet" type="text/css" href="chekingLists.css">
+	<script type="text/javascript" src="checkingLists.js"></script>
+</head>
+<body class="flex-container">
+		<h1>Proves lliures 2020</h1>
+		<form class="flex-container">
+			<button type="reset" onclick="eoi_reset()">Reset</button>
+			<div class="linia">
+				<input type="checkbox" name="matricula" onclick="eoi_tatxa(0)">
+				<label for="matricula">Matrícula telemàtica</label>			
+			</div>
+			<div class="linia">
+				<input type="checkbox" name="residencia" onclick="eoi_tatxa(1)">
+				<label for="residencia">Certificat d'empadronament</label>
+			</div>
+			<div class="linia">
+				<input type="checkbox" name="requisitsAcademics" onclick="eoi_tatxa(2)">
+				<label for="requisitsAcademics">Requisits acadèmics</label>
+			</div>
+			<div class="linia">
+				<input type="checkbox" name="dni" onclick="eoi_tatxa(3)">
+				<label for="dni">Fotcòpia DNI</label>
+			</div>		
+			<div class="linia">
+				<input type="checkbox" name="fotos" onclick="eoi_tatxa(4)">
+				<label for="fotos">Fotos</label>
+			</div>		
+			<div class="linia">
+				<input type="checkbox" name="edat" onclick="eoi_tatxa(5)">
+				<label for="edat">Edat (2004/2006)</label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="dadesPersonals" onclick="eoi_tatxa(6)">
+				<label for="dadesPersonals">Autorització dades personals</label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="obExp" onclick="eoi_tatxa(7)">
+				<label for="obExp">Obertura Expedient</label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="servGen" onclick="eoi_tatxa(8)">
+				<label for="servGen">Serveis Generals</label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="dretsExamen" onclick="eoi_tatxa(9)">
+				<label for="dretsExamen">Drets d'examen</label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="trasllat" onclick="eoi_tatxa(10)">
+				<label for="trasllat">Trasllat d'expedient</label>
+			</div>
+			<div class="separacio"></div>
+		</form>
+</body>
+</html>

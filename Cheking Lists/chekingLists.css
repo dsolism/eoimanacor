@@ -1,0 +1,99 @@
+body{
+	background-color: #2e2e2e;
+	color: white;
+	height: 100vh;
+	width: 600px;
+	margin: auto;
+	font-family: sans-serif;
+}
+
+h1{
+	font-size: 8vh;
+}
+
+.linia{
+	display: block;
+	font-size: 5vh;
+}
+
+input[type="checkbox"] {
+	width: 5vh;
+	height: 5vh;
+	vertical-align: middle;
+}
+
+label{
+	vertical-align: middle;
+}
+
+.flex-container{
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.flex-container > form{
+	flex-grow: 1;
+}
+
+.flex-container button{
+	width: 150px;
+	font-size: 5vh;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	background-color: #3EA366;
+	color: white;
+	border: none;
+	align-self: flex-end;
+}
+
+.flex-container button:hover{
+	background-color: #2a7347;
+	border: none;
+	cursor: pointer;
+}
+
+.flex-container button:focus{
+	outline: none;
+}
+
+.tatxat{
+	text-decoration: line-through;
+	opacity: 0.2;
+}
+
+.arxivat{
+	order: 1;
+}
+
+.separacio{
+	flex-grow: 1;
+}
+
+@media (max-width: 640px){
+    
+    h1{
+        font-size: 5vh;
+        padding-left: 15px;
+    }
+
+    .linia{
+    	font-size: 3vh;
+    	padding-left: 15px;
+    }
+
+	input[type="checkbox"] {
+		width: 3vh;
+		height: 3vh;
+	}   
+
+	body{
+		width: auto;
+		height: 80vh;
+	}
+
+	.flex-container button{
+		font-size: 3vh;
+		margin-right: 15px;
+	}
+}
+
