@@ -24,16 +24,16 @@ const taxes = {
 		"tramit":"Pagament obertura d'expedient",
 		"document": "Model 046",
 		"ord":{
-			"textBoto": "Pagau (23,92 €)",
+			"textBoto": "Pagau (24,21 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6143"
 		},
 		"fng":{
-			"textBoto": "Pagau (11,96 €)",
+			"textBoto": "Pagau (12,10 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146"
 			
 		},
 		"fmpg":{
-			"textBoto": "Pagau (11,96 €)",
+			"textBoto": "Pagau (12,10 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6146"
 			
 		}
@@ -43,17 +43,17 @@ const taxes = {
 		"document": "Model 046",
 
 		"ord":{
-			"textBoto": "Pagau (11,39 €)",
+			"textBoto": "Pagau (11,53 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6144",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6149"
 		},
 		"fng":{
-			"textBoto": "Pagau (5,70 €)",
+			"textBoto": "Pagau (5,77 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151"
 		},
 		"fmpg":{
-			"textBoto": "Pagau (5,70 €)",
+			"textBoto": "Pagau (5,77 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6147",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6151"
 		}
@@ -62,17 +62,17 @@ const taxes = {
 		"tramit": "Pagament drets examen",
 		"document": "Model 046",
 		"ord":{
-			"textBoto":"Pagau (45,57 €)",
+			"textBoto":"Pagau (46,12 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6078",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6084"
 		},
 		"fng":{
-			"textBoto":"Pagau (22,79 €)",
+			"textBoto":"Pagau (23,06 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6081",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
 		},
 		"fmpg":{
-			"textBoto":"Pagau (22,79 €)",
+			"textBoto":"Pagau (23,06 €)",
 			"nouAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6081",
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6086"
 		}
@@ -96,7 +96,7 @@ const taxes = {
 			"anticAlumne":"https://www.atib.es/TA/Modelos/Modelo.aspx?m=046&idConcepto=6150"
 		}
 	},
-	"urlInfo":"https://www.eoimanacor.com/pagament-taxes-proves-lliures-2019/"
+	"urlInfo":"https://www.eoimanacor.com/taxes-proves-lliures-2020/"
 }
 
 const tramits = {
@@ -206,7 +206,7 @@ class alumneSchema{
 			textTramit += ' ' + nivell[unitats] + ' nivell';
 		}
 
-		var linia ='<tr><td>'+textTramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var linia ='<tr><td>'+textTramit+'</td><td>'+paramTramit.document+'</td><td>'+boto+'</td><td class=\'centrat\'>'+info+'</td></tr>';
 
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 	}
@@ -221,7 +221,7 @@ class alumneSchema{
 			textTramit += ' ' + nivell[unitats] + ' nivell';
 		}
 
-		var linia ='<tr><td>'+textTramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td>'+info+'</td></tr>';
+		var linia ='<tr><td>'+textTramit+'</td><td>'+taxa.document+'</td><td>'+boto+'</td><td class=\'centrat\'>'+info+'</td></tr>';
 		document.getElementById('taulaDocuments').lastElementChild.insertAdjacentHTML('beforeend', linia);
 
 	}
@@ -392,8 +392,8 @@ function mostra(lloc, numero){
 // Funció que regula l'avís que sortirà quan l'usuari vulgui saber els documents que ha de lliurar
 function avisData(){
 
-	var inici = new Date(2019, 1, 19, 9,0,0),
-		final = new Date(2019, 2, 11, 22, 0, 0),
+	var inici = new Date(2020, 1, 25, 9,0,0),
+		final = new Date(2020, 2, 17, 22, 0, 0),
 		avui = new Date(),
 		avis;
 

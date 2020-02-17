@@ -141,7 +141,6 @@ fieldset{
 }
 
 .far, .fas{
-	margin-right: 0.8em;
 	font-size: 1.5em;
 }
 
@@ -163,7 +162,7 @@ td, th{
 }
 
 .fa-question-circle{
-	margin-left: 0.7em;
+	margin-right: 0.7em;
 	font-size: 1.2em;
 	color: #999999;
 }

@@ -3,7 +3,8 @@
 <head>
 	<title>Tràmit matícula</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="plliures2019.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="plliures2020.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<script src="Formulari.js"></script>
 </head>
@@ -30,7 +31,7 @@
 				<div id="preguntesAnticAlumne">
 
 					<!-- Alumne oficial curs actual. Aquesta informació ens servirà per saber si ha de pagar serveis generals i presentar justificant zona influència -->
-					<p>Estàs o has estat matriculat/ada com alumne presencial al curs 2018/19 a qualque escola oficial d'idiomes?</p>
+					<p>Estàs o has estat matriculat/ada com alumne presencial al curs 2019/20 a qualque escola oficial d'idiomes?</p>
 					<div>
 						<input type="radio" id="alumnePresencialSi" name="alumnePresencial" value="si" autocomplete="off">
 						<label for="alumnePresencialSi">Sí</label>					
@@ -73,12 +74,12 @@
 						<legend>Altres situacions</legend>
 						<div class="contenidorAvis">
 							<input type="checkbox" name="adaptacio" id="adaptacio" autocomplete="off">
-							<label for="adaptacio">Sol·licit adaptació d'examen</label><i class="fas fa-question-circle"  onclick="mostra('avisAdaptacio',0)"></i><a href="#">(+info)</a>
+							<label for="adaptacio">Sol·licit adaptació d'examen</label><i class="fas fa-question-circle"  onclick="mostra('avisAdaptacio',0)"></i><a href="https://www.eoimanacor.com/adaptacions-proves-de-certificacio/" target="_blank">(+info)</a>
 							<span class="avis ocult" id="avisAdaptacio">Per alumnes que necessitin condicions especials per a la realització de les proves.</span>
 						</div>
 						<div class="contenidorAvis">
 							<input type="checkbox" name="trasllat" id="trasllat" autocomplete="off">
-							<label for="trasllat">Sol·licit trasllat d'expedient</label><i class="fas fa-question-circle" onclick="mostra('avisTrasllatExpedient',1)"></i><a href="#">(+info)</a>
+							<label for="trasllat">Sol·licit trasllat d'expedient</label><i class="fas fa-question-circle" onclick="mostra('avisTrasllatExpedient',1)"></i><a href="https://www.eoimanacor.com/trasllat-de-matricula/" target="_blank">(+info)</a>
 							<span class="avis ocult" id="avisTrasllatExpedient">Obligatori si la darrera matrícula de l'idioma va ser a un altre centre.</span>
 						</div>
 					</fieldset>
