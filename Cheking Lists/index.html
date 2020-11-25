@@ -15,37 +15,42 @@
 	<script type="text/javascript" src="checkingLists.js"></script>
 </head>
 <body class="flex-container">
-		<h1>Proves lliures 2020</h1>
+		<h1>Matrícula presencial 2020</h1>
 		<form class="flex-container">
 			<button type="reset" onclick="eoi_reset()">Reset</button>
 			<div class="linia">
 				<input type="checkbox" name="matricula" onclick="eoi_tatxa(0)">
 				<label for="matricula">Matrícula telemàtica</label>			
 			</div>
-			<div class="linia">
+			<!--<div class="linia">
 				<input type="checkbox" name="residencia" onclick="eoi_tatxa(1)">
 				<label for="residencia">Certificat d'empadronament</label>
-			</div>
-			<!-- <div class="linia">
-				<input type="checkbox" name="requisitsAcademics" onclick="eoi_tatxa(2)">
+			</div>-->
+			<div class="linia">
+				<input type="checkbox" name="requisitsAcademics" onclick="eoi_tatxa(1)">
 				<label for="requisitsAcademics">Requisits acadèmics</label>
-			</div> -->
-			<div class="linia">
-				<input type="checkbox" name="dni" onclick="eoi_tatxa(2)">
+			</div>
+			<!--<div class="linia">
+				<input type="checkbox" name="dni" onclick="eoi_tatxa(3)">
 				<label for="dni">Fotcòpia DNI</label>
-			</div>		
+			</div>-->
 			<div class="linia">
-				<input type="checkbox" name="fotos" onclick="eoi_tatxa(3)">
+				<input type="checkbox" name="fotos" onclick="eoi_tatxa(2)">
 				<label for="fotos">Fotos</label>
 			</div>		
 			<div class="linia">
-				<input type="checkbox" name="edat" onclick="eoi_tatxa(4)">
+				<input type="checkbox" name="edat" onclick="eoi_tatxa(3)">
 				<label for="edat">Edat (2004/2006)</label>
 			</div>	
 			<div class="linia">
-				<input type="checkbox" name="dadesPersonals" onclick="eoi_tatxa(5)">
+				<input type="checkbox" name="dadesPersonals" onclick="eoi_tatxa(4)">
 				<label for="dadesPersonals"><a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2018/06/28082538/AUTORITZACIO-US-DADES-PERSONALS.pdf" target="_blank">Autorització dades personals</a></label>
+			</div>
+			<div class="linia">
+				<input type="checkbox" name="QuotaCompl" onclick="eoi_tatxa(5)">
+				<label for="obExp"><a href="https://www.eoimanacor.com/quota-complementaria/" target="_blank">Quota complementària</a></label>
 			</div>	
+
 			<div class="linia">
 				<input type="checkbox" name="obExp" onclick="eoi_tatxa(6)">
 				<label for="obExp">Obertura Expedient</label>
@@ -56,10 +61,14 @@
 			</div>	
 			<div class="linia">
 				<input type="checkbox" name="dretsExamen" onclick="eoi_tatxa(8)">
-				<label for="dretsExamen">Drets d'examen</label>
+				<label for="dretsExamen">Taxa matrícula</label>
 			</div>	
 			<div class="linia">
-				<input type="checkbox" name="trasllat" onclick="eoi_tatxa(9)">
+				<input type="checkbox" name="fullMenors" onclick="eoi_tatxa(9)">
+				<label for="dretsExamen"><a href="https://s3-eu-west-1.amazonaws.com/eoi-manacor/wp-content/uploads/2019/06/04192150/Full-menors.pdf" target="_blank">Full de menors</a></label>
+			</div>	
+			<div class="linia">
+				<input type="checkbox" name="trasllat" onclick="eoi_tatxa(10)">
 				<label for="trasllat">Trasllat d'expedient</label>
 			</div>
 			<div class="separacio"></div>
